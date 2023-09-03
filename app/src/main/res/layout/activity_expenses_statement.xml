@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Expenses.ExpensesStatementActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/light_blue"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expenses Statement"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    />
+                <ImageView
+                    android:id="@+id/ivPDFexpenses"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/outline_picture_as_pdf_24"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="30dp"
+                    />
+            </RelativeLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="15dp"
+        app:cardCornerRadius="10dp"
+        >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/expen"
+            android:layout_marginTop="17dp"
+            android:layout_marginStart="10dp"
+            />
+
+
+        <TextView
+            android:id="@+id/tvRS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs."
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"
+            />
+
+        <TextView
+            android:id="@+id/balanceAMOUNT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3290.0"
+            android:layout_marginStart="87dp"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"
+            />
+
+        <TextView
+            android:id="@+id/BalanceAMOUNTText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Expenses"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            android:textSize="17dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demo1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="180dp"
+        android:layout_marginHorizontal="15dp"
+        app:cardCornerRadius="10dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12/12/2022"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Date"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/Product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product :"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="75dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/ProductEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chocker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Product"
+                android:layout_marginEnd="82dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/EGbar1"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ProductEnter"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="25dp"
+                ></androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/Quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantity :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EGbar1"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/QuantityEnter"
+                android:layout_width="8dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="10dp"
+                android:text="5"
+                android:textSize="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Quantity" />
+
+            <TextView
+                android:id="@+id/UNITS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Units(Kg) :"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EGbar1"
+                android:layout_marginEnd="70dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/unitsEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8.3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/UNITS"
+                android:layout_marginEnd="95dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/EGbar2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/unitsEnter"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="25dp"
+                ></androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/perQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Per Quantity(Rs.) :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EGbar2"
+                android:layout_marginStart="38dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/AmountEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/perQuantity"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+
+            <TextView
+                android:id="@+id/tvshift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shift :"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/EGbar2"
+                android:layout_marginEnd="105dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+            <TextView
+                android:id="@+id/tvShiftEnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Morning"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvshift"
+                android:layout_marginEnd="80dp"
+                android:layout_marginTop="10dp"
+                android:textSize="19dp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <Button
+        android:id="@+id/btn_fINISH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="FINISH"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo1"
+        android:layout_marginHorizontal="20dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

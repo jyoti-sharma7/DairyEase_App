@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/splashbg"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/splashbg"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DairyEase"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".EmailVerifyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPassword.TokenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPassword.NewpasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LogoutPopoutDialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Expenses.ExpensespdfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MilkActivity.MilkPdfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Product.ProductDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Expenses.ExpensesStatementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MilkActivity.MilkStatementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MilkActivity.MilkDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Expenses.ExpensesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgetPassword.ForgetPassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Customer_DashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

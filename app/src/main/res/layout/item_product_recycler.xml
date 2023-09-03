@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="145dp"
+    android:layout_height="165dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:id="@+id/rvllProduct"
+    android:layout_marginHorizontal="5dp"
+
+    >
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginStart="5dp"
+            android:id="@+id/MILKpic"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="135dp"
+                android:layout_height="145dp">
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="85dp"
+                    android:src="@drawable/img_17"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/imgproduct"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vita Cow Milk"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imgproduct"
+                    android:id="@+id/productName"
+                    android:layout_marginStart="15dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productName"
+                    android:id="@+id/tvQuantity"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ltr"
+                    app:layout_constraintTop_toBottomOf="@id/productName"
+                    app:layout_constraintStart_toEndOf="@id/tvQuantity"
+                    android:id="@+id/tvProductQty"
+                    android:layout_marginStart="1dp"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rs."
+                    android:textColor="@color/light_blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuantity"
+                    android:id="@+id/tvRS"
+                    android:layout_marginStart="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:textColor="@color/light_blue"
+                    app:layout_constraintTop_toBottomOf="@id/tvQuantity"
+                    app:layout_constraintStart_toEndOf="@id/tvRS"
+                    android:id="@+id/tvPerPrice"
+                    android:layout_marginStart="1dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
