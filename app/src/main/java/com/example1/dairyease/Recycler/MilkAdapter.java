@@ -55,9 +55,9 @@ public class MilkAdapter extends RecyclerView.Adapter<MilkAdapter.MilkListViewHo
                 editor.putString("Date", milkData.getDate());
                 editor.putString("liter", milkData.getLiter());
                 editor.putInt("balance", milkData.getBalance());
-                editor.putInt("perLiterAmt", milkData.getPerLiterAmt());
-                editor.putInt("totalFat", milkData.getTotalFat());
-                editor.putInt("totalSnf", milkData.getTotalSnf());
+                editor.putInt("perLiterAmt", milkData.getPer_liter_amt());
+                editor.putInt("totalFat", milkData.getTotal_fat());
+                editor.putInt("totalSnf", milkData.getTotal_snf());
                 editor.putString("shift", milkData.getShift());
 
                 editor.apply();

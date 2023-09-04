@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example1.dairyease.Expenses.ExpensesActivity;
 import com.example1.dairyease.MilkActivity.MilkDetailActivity;
+import com.example1.dairyease.ModelResponse.CategoryData;
+import com.example1.dairyease.ModelResponse.CategoryResponse;
 import com.example1.dairyease.ModelResponse.DashBoardResponse;
 import com.example1.dairyease.ModelResponse.EventData;
 import com.example1.dairyease.ModelResponse.EventResponse;
@@ -28,6 +30,7 @@ import com.example1.dairyease.ModelResponse.ProductResponse;
 import com.example1.dairyease.ModelResponse.ProfileData;
 import com.example1.dairyease.ModelResponse.ProfileResponse;
 import com.example1.dairyease.Profile.ProfileActivity;
+import com.example1.dairyease.Recycler.CategoryAdapter;
 import com.example1.dairyease.Recycler.EventAdapter;
 import com.example1.dairyease.Recycler.ProductListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,9 +47,10 @@ import retrofit2.Response;
 
 public class Customer_DashboardActivity extends AppCompatActivity {
 
-    RecyclerView RecyclerProductDetail,RecyclerEvents;
+    RecyclerView RecyclerProductDetail,RecyclerEvents,rvCategory;
     LinearLayoutManager layoutManager;
     ProductListAdapter productListAdapter;
+    CategoryAdapter categoryAdapter;
     EventAdapter eventAdapter;
     Context context;
     TextView greetingTextView,greet,perliterAMOUNT,totalmilkAMOUNT,balanceAMOUNT;
@@ -55,6 +59,7 @@ public class Customer_DashboardActivity extends AppCompatActivity {
 
     List<ProductList> productLists;
     List<EventData> eventDataList;
+    List<CategoryData> categoryDataList;
 
 
     @Override
@@ -63,8 +68,9 @@ public class Customer_DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_dashboard);
 
         greetingTextView = findViewById(R.id.tvGoodMorning);
-        initRecyclerView();
+        productRecyclerView();
         eventRecycler();
+        categoryRecycle();
         balanceData();
 
         // Schedule a task to update the greeting text periodically
@@ -180,7 +186,6 @@ public class Customer_DashboardActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         RecyclerEvents.setLayoutManager(layoutManager);
-
         // Initialize productLists as an empty ArrayList
         eventDataList = new ArrayList<>();
 
@@ -220,6 +225,49 @@ public class Customer_DashboardActivity extends AppCompatActivity {
 
     }
 
+    private void categoryRecycle(){
+
+        rvCategory = findViewById(R.id.rvCategory);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
+        rvCategory.setLayoutManager(layoutManager);
+        categoryDataList = new ArrayList<>();
+        categoryAdapter = new CategoryAdapter(Customer_DashboardActivity.this,categoryDataList);
+        rvCategory.setAdapter(categoryAdapter);
+        populateCategory();
+    }
+
+    private void populateCategory(){
+        SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        String accessToken = sharedPreferences.getString("TOKEN","");
+
+        Call<CategoryResponse> call = RetrofitClient
+                .getInstance()
+                .getApi()
+                .getCategoryData("Bearer " + accessToken);
+
+        call.enqueue(new Callback<CategoryResponse>() {
+            @Override
+            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
+                if(response.isSuccessful()){
+                    // Clear existing data and add the new data from the response
+                    categoryDataList.clear();
+                    categoryDataList.addAll(response.body().getData());
+                    categoryAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CategoryResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+
     private void updateGreetingText() {
 
         runOnUiThread(new Runnable() {
@@ -251,7 +299,7 @@ public class Customer_DashboardActivity extends AppCompatActivity {
         }
     }
 
-    private void initRecyclerView() {
+    private void productRecyclerView() {
 
         RecyclerProductDetail = findViewById(R.id.RecyclerProductDetail);
         layoutManager = new LinearLayoutManager(this);
@@ -264,11 +312,11 @@ public class Customer_DashboardActivity extends AppCompatActivity {
         productListAdapter = new ProductListAdapter (Customer_DashboardActivity.this,productLists);
         RecyclerProductDetail.setAdapter(productListAdapter);
         productListAdapter.notifyDataSetChanged();
-        populateServices();
+        populateProducts();
 
     }
 
-    public void populateServices(){
+    public void populateProducts(){
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
         String accessToken = sharedPreferences.getString("TOKEN","");

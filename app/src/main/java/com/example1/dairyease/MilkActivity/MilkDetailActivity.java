@@ -60,9 +60,8 @@ public class MilkDetailActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()){
                     milkResponseList = response.body().getData();
-                    rvMilkDetail.setAdapter(new MilkAdapter(context,milkResponseList));
-                    MilkAdapter adapter = new MilkAdapter(context,milkResponseList);
-                    adapter.notifyDataSetChanged();
+                    rvMilkDetail.setAdapter(new MilkAdapter(MilkDetailActivity.this,milkResponseList));
+                    rvMilkDetail.setLayoutManager(new LinearLayoutManager(MilkDetailActivity.this));
                 }
 
             }

@@ -54,14 +54,15 @@ public class NewpasswordActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
 
                                 NewPasswordResponse newPasswordResponse = response.body();
-                                if (response.isSuccessful()) {
-
                                     Toast.makeText(getApplicationContext(), newPasswordResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(NewpasswordActivity.this, LoginActivity.class);
                                     startActivity(i);
                                     finish();
 
-                                }
+                            } else {
+                                Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_SHORT).show();
+
+
                             }
 
 

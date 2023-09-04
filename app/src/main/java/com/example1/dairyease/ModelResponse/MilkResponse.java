@@ -41,46 +41,38 @@ public class MilkResponse {
     public static class Data {
 
         public Integer id;
-        public Integer userId;
+        public Integer user_id;
         public String shift;
         public String date;
-        public String perFatAmt;
-        public String fatRate;
-        public String perSnfAmt;
-        public String snfRate;
+        public String per_fat_amt;
+        public String fat_rate;
+        public String per_snf_amt;
+        public String snf_rate;
         public String liter;
-        public Integer totalFat;
-        public Integer totalSnf;
-        public Integer perLiterAmt;
+        public Integer total_fat;
+        public Integer total_snf;
+        public Integer per_liter_amt;
         public Integer balance;
-        public String createdAt;
-        public String updatedAt;
+        public String created_at;
+        public String updated_at;
 
-        public Data(Integer id, Integer userId,
-                    String shift, String date,
-                    String perFatAmt, String fatRate,
-                    String perSnfAmt, String snfRate,
-                    String liter, Integer totalFat,
-                    Integer totalSnf, Integer perLiterAmt,
-                    Integer balance, String createdAt,
-                    String updatedAt) {
+        public Data(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, Integer total_fat, Integer total_snf, Integer per_liter_amt, Integer balance, String created_at, String updated_at) {
             this.id = id;
-            this.userId = userId;
+            this.user_id = user_id;
             this.shift = shift;
             this.date = date;
-            this.perFatAmt = perFatAmt;
-            this.fatRate = fatRate;
-            this.perSnfAmt = perSnfAmt;
-            this.snfRate = snfRate;
+            this.per_fat_amt = per_fat_amt;
+            this.fat_rate = fat_rate;
+            this.per_snf_amt = per_snf_amt;
+            this.snf_rate = snf_rate;
             this.liter = liter;
-            this.totalFat = totalFat;
-            this.totalSnf = totalSnf;
-            this.perLiterAmt = perLiterAmt;
+            this.total_fat = total_fat;
+            this.total_snf = total_snf;
+            this.per_liter_amt = per_liter_amt;
             this.balance = balance;
-            this.createdAt = createdAt;
-            this.updatedAt = updatedAt;
+            this.created_at = created_at;
+            this.updated_at = updated_at;
         }
-
 
         public Integer getId() {
             return id;
@@ -90,12 +82,12 @@ public class MilkResponse {
             this.id = id;
         }
 
-        public Integer getUserId() {
-            return userId;
+        public Integer getUser_id() {
+            return user_id;
         }
 
-        public void setUserId(Integer userId) {
-            this.userId = userId;
+        public void setUser_id(Integer user_id) {
+            this.user_id = user_id;
         }
 
         public String getShift() {
@@ -114,36 +106,36 @@ public class MilkResponse {
             this.date = date;
         }
 
-        public String getPerFatAmt() {
-            return perFatAmt;
+        public String getPer_fat_amt() {
+            return per_fat_amt;
         }
 
-        public void setPerFatAmt(String perFatAmt) {
-            this.perFatAmt = perFatAmt;
+        public void setPer_fat_amt(String per_fat_amt) {
+            this.per_fat_amt = per_fat_amt;
         }
 
-        public String getFatRate() {
-            return fatRate;
+        public String getFat_rate() {
+            return fat_rate;
         }
 
-        public void setFatRate(String fatRate) {
-            this.fatRate = fatRate;
+        public void setFat_rate(String fat_rate) {
+            this.fat_rate = fat_rate;
         }
 
-        public String getPerSnfAmt() {
-            return perSnfAmt;
+        public String getPer_snf_amt() {
+            return per_snf_amt;
         }
 
-        public void setPerSnfAmt(String perSnfAmt) {
-            this.perSnfAmt = perSnfAmt;
+        public void setPer_snf_amt(String per_snf_amt) {
+            this.per_snf_amt = per_snf_amt;
         }
 
-        public String getSnfRate() {
-            return snfRate;
+        public String getSnf_rate() {
+            return snf_rate;
         }
 
-        public void setSnfRate(String snfRate) {
-            this.snfRate = snfRate;
+        public void setSnf_rate(String snf_rate) {
+            this.snf_rate = snf_rate;
         }
 
         public String getLiter() {
@@ -154,28 +146,28 @@ public class MilkResponse {
             this.liter = liter;
         }
 
-        public Integer getTotalFat() {
-            return totalFat;
+        public Integer getTotal_fat() {
+            return total_fat;
         }
 
-        public void setTotalFat(Integer totalFat) {
-            this.totalFat = totalFat;
+        public void setTotal_fat(Integer total_fat) {
+            this.total_fat = total_fat;
         }
 
-        public Integer getTotalSnf() {
-            return totalSnf;
+        public Integer getTotal_snf() {
+            return total_snf;
         }
 
-        public void setTotalSnf(Integer totalSnf) {
-            this.totalSnf = totalSnf;
+        public void setTotal_snf(Integer total_snf) {
+            this.total_snf = total_snf;
         }
 
-        public Integer getPerLiterAmt() {
-            return perLiterAmt;
+        public Integer getPer_liter_amt() {
+            return per_liter_amt;
         }
 
-        public void setPerLiterAmt(Integer perLiterAmt) {
-            this.perLiterAmt = perLiterAmt;
+        public void setPer_liter_amt(Integer per_liter_amt) {
+            this.per_liter_amt = per_liter_amt;
         }
 
         public Integer getBalance() {
@@ -186,20 +178,20 @@ public class MilkResponse {
             this.balance = balance;
         }
 
-        public String getCreatedAt() {
-            return createdAt;
+        public String getCreated_at() {
+            return created_at;
         }
 
-        public void setCreatedAt(String createdAt) {
-            this.createdAt = createdAt;
+        public void setCreated_at(String created_at) {
+            this.created_at = created_at;
         }
 
-        public String getUpdatedAt() {
-            return updatedAt;
+        public String getUpdated_at() {
+            return updated_at;
         }
 
-        public void setUpdatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
+        public void setUpdated_at(String updated_at) {
+            this.updated_at = updated_at;
         }
     }
 }

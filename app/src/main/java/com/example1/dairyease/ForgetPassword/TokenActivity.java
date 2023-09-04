@@ -47,7 +47,6 @@ public class TokenActivity extends AppCompatActivity {
                         if(response.isSuccessful()){
                             TokenOTPResponse otpResponse = response.body();
                             Toast.makeText(getApplicationContext(), otpResponse.getMessage(),Toast.LENGTH_SHORT).show();
-
                             // OTP verified successfully, navigate to ResetPasswordActivity
                             Intent intent = new Intent(TokenActivity.this, NewpasswordActivity.class);
                             startActivity(intent);

@@ -74,7 +74,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             tvQuantity.setText(productList.getQuantity()+"");
             tvPerPrice.setText(productList.getPrice());
 
-            Glide.with(context).load(productList.getProduct_photo()).into(imgproduct);
+            Glide.with(context).load(productList.getProduct_image_url()).into(imgproduct);
 
 
 

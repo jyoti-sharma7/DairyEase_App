@@ -23,7 +23,7 @@
                 android:layout_width="135dp"
                 android:layout_height="145dp">
                 <ImageView
-                    android:layout_width="140dp"
+                    android:layout_width="130dp"
                     android:layout_height="85dp"
                     android:src="@drawable/img_17"
                     app:layout_constraintStart_toStartOf="parent"
