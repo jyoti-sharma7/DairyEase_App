@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example1.dairyease.ForgetPassword.ForgetPassActivity;
 import com.example1.dairyease.ModelResponse.LoginResponse;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = login_email.getText().toString();
-                String password = login_password.getText().toString();
+                String email = login_email.getText().toString().trim();
+                String password = login_password.getText().toString().trim();
 
                 if(email.equals("") || password.equals("")){
                     Toast.makeText(LoginActivity.this,"Field are empty",Toast.LENGTH_SHORT).show();
@@ -66,9 +68,8 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response)
                             {
-                              LoginResponse loginResponse = response.body();
+                                LoginResponse loginResponse = response.body();
                                 if(response.isSuccessful()){
-
 
                                     SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -77,14 +78,21 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.apply();
 
                                     Toast.makeText(LoginActivity.this, loginResponse.getMessage(),Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(LoginActivity.this, Customer_DashboardActivity.class);
+                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(i);
                                     finish();
+                                } else  {
+                                    // Handle non-successful response (e.g., login failed)
+                                    if (response.errorBody() != null) {
+                                        try {
+                                            String errorBody = response.errorBody().string();
+                                            // You can parse the error message from the errorBody if available
+                                            Toast.makeText(LoginActivity.this, errorBody, Toast.LENGTH_SHORT).show();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
                                 }
-                                else{
-                                    Toast.makeText(getApplicationContext(),"Error!! Try Again.",Toast.LENGTH_SHORT).show();
-                                }
-
                             }
 
                             @Override
@@ -107,5 +115,5 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
-        }
+    }
 }

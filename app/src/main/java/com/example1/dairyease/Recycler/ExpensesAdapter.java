@@ -26,7 +26,6 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
     public ExpensesAdapter(Context context, List<ExpensesResponse.ExpensesData> expensesDataList) {
         this.context = context;
         this.expensesDataList = expensesDataList;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -65,8 +64,8 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
                     editor.apply();
 
 
-                        Intent i = new Intent(context, ExpensesStatementActivity.class);
-                        context.startActivity(i);
+                    Intent i = new Intent(context, ExpensesStatementActivity.class);
+                    context.startActivity(i);
 
                 }
             });

@@ -49,14 +49,15 @@ public class MilkResponse {
         public String per_snf_amt;
         public String snf_rate;
         public String liter;
-        public Integer total_fat;
-        public Integer total_snf;
-        public Integer per_liter_amt;
+        public Float  total_fat;
+        public Float total_snf;
+        public Float per_liter_amt;
         public Integer balance;
         public String created_at;
         public String updated_at;
 
-        public Data(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, Integer total_fat, Integer total_snf, Integer per_liter_amt, Integer balance, String created_at, String updated_at) {
+
+        public Data(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, Float total_fat, Float total_snf, Float per_liter_amt, Integer balance, String created_at, String updated_at) {
             this.id = id;
             this.user_id = user_id;
             this.shift = shift;
@@ -146,27 +147,27 @@ public class MilkResponse {
             this.liter = liter;
         }
 
-        public Integer getTotal_fat() {
+        public Float getTotal_fat() {
             return total_fat;
         }
 
-        public void setTotal_fat(Integer total_fat) {
+        public void setTotal_fat(Float total_fat) {
             this.total_fat = total_fat;
         }
 
-        public Integer getTotal_snf() {
+        public Float getTotal_snf() {
             return total_snf;
         }
 
-        public void setTotal_snf(Integer total_snf) {
+        public void setTotal_snf(Float total_snf) {
             this.total_snf = total_snf;
         }
 
-        public Integer getPer_liter_amt() {
+        public Float getPer_liter_amt() {
             return per_liter_amt;
         }
 
-        public void setPer_liter_amt(Integer per_liter_amt) {
+        public void setPer_liter_amt(Float per_liter_amt) {
             this.per_liter_amt = per_liter_amt;
         }
 
@@ -195,5 +196,4 @@ public class MilkResponse {
         }
     }
 }
-
 

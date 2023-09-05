@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="145dp"
-    android:layout_height="165dp"
+    android:layout_width="175dp"
+    android:layout_height="187dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/rvllProduct"
@@ -12,19 +12,19 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
+            android:layout_width="160dp"
+            android:layout_height="177dp"
+            android:layout_marginTop="4dp"
             android:layout_marginStart="5dp"
             android:id="@+id/MILKpic"
             app:cardElevation="5dp"
             app:cardCornerRadius="10dp">
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="135dp"
-                android:layout_height="145dp">
+                android:layout_width="160dp"
+                android:layout_height="match_parent">
                 <ImageView
-                    android:layout_width="130dp"
-                    android:layout_height="85dp"
+                    android:layout_width="150dp"
+                    android:layout_height="115dp"
                     android:src="@drawable/img_17"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

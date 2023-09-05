@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MilkActivity.MilkStatementActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/backgroundwithcurves"
+        />
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -29,6 +37,7 @@
                     android:textColor="@color/white"
                     />
                 <ImageView
+                    android:id="@+id/ivPdf"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/outline_picture_as_pdf_24"
@@ -43,11 +52,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="85dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="85dp"
         android:layout_marginHorizontal="15dp"
         app:cardCornerRadius="10dp"
         >
@@ -56,15 +65,25 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/tag"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="19dp"
             android:layout_marginStart="10dp"
             />
         <TextView
-            android:id="@+id/BalanceAMOUNT"
+            android:id="@+id/tvRs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rs 290.0"
-            android:layout_marginStart="60dp"
+            android:text="Rs."
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="10dp"
+            android:textSize="17dp"
+            />
+
+        <TextView
+            android:id="@+id/tvBalanceAMOUNT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="290.0"
+            android:layout_marginStart="90dp"
             android:layout_marginTop="10dp"
             android:textSize="17dp"
             />
@@ -74,8 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Balance"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="35dp"
             android:textSize="17dp"
             />
          </androidx.cardview.widget.CardView>
@@ -87,7 +106,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="200dp"
         android:layout_marginHorizontal="15dp"
         app:cardCornerRadius="10dp"
         >
@@ -259,12 +278,10 @@
         app:cornerRadius="10dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/light_blue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/demo1"
+        android:layout_below="@id/demo1"
         android:layout_marginHorizontal="20dp"
         />
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

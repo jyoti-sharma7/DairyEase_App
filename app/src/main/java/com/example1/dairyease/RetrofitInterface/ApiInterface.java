@@ -64,10 +64,9 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("change-password")
     Call<NewPasswordResponse> resetPassword(
-           // @Field("email") String email,
             @Field("password") String password,
-           // @Field("otp") int otp,
-            @Field("password_confirmation") String password_confirmation
+            @Field("password_confirmation") String password_confirmation,
+            @Header("Authorization") String accessToken
     );
 
     @FormUrlEncoded
@@ -75,8 +74,6 @@ public interface ApiInterface {
     Call<TokenOTPResponse> verifyOtp(
             @Field("otp") String otp
     );
-
-
 
 
     @GET("profile")

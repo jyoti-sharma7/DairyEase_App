@@ -60,14 +60,18 @@ public class ForgetPassActivity extends AppCompatActivity {
                 call.enqueue(new Callback<ForgetPasswordResponse>() {
                     @Override
                     public void onResponse(Call<ForgetPasswordResponse> call, Response<ForgetPasswordResponse> response) {
+
+                        ForgetPasswordResponse forgetPasswordResponse = response.body();
+
                         if(response.isSuccessful()){
-                            ForgetPasswordResponse forgetPasswordResponse = response.body();
                             Toast.makeText(ForgetPassActivity.this, forgetPasswordResponse.getMessage(),Toast.LENGTH_SHORT).show();
 
-                            // OTP sent successfully, navigate to OTPActivity
-                            Intent intent = new Intent(ForgetPassActivity.this, TokenActivity.class);
+                            Intent intent = new Intent(ForgetPassActivity.this,TokenActivity.class);
                             startActivity(intent);
                             finish();
+
+                        } else {
+                            Toast.makeText(ForgetPassActivity.this, forgetPasswordResponse.getMessage(),Toast.LENGTH_SHORT).show();
 
                         }
                     }

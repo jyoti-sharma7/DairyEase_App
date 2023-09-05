@@ -7,173 +7,220 @@
     tools:context=".MilkActivity.MilkPdfActivity">
 
 
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/border"
-        android:layout_marginHorizontal="25dp"
-        android:layout_marginVertical="50dp"
-        android:background="@drawable/rectangularborder"/>
+        android:layout_width="350dp"
+        android:layout_height="555dp"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="60dp"
+
+        android:background="@drawable/rectangularborder"></ImageView>
 
     <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dairy Ease"
+
+
         android:textSize="26dp"
         android:textColor="@color/light_blue"
-        android:layout_marginHorizontal="130dp"
+        android:layout_marginStart="145sp"
         android:layout_marginTop="100dp"
-        android:textStyle="bold" />
+
+        android:textStyle="bold"
+        android:paddingBottom="15dp" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="150dp"
+        android:layout_marginStart="120dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="165dp"
+
+        android:background="@color/light_blue"></View>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PAYMENT RECEIPT"
+
+
         android:textSize="19dp"
-        android:layout_below="@id/title"
-        android:layout_marginHorizontal="110dp"
-         />
+        android:textColor="@color/black"
+        android:layout_marginStart="119sp"
+        android:layout_marginTop="130dp"
+
+        android:textStyle="normal"
+        android:paddingBottom="15dp" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="120dp"
+        android:layout_marginStart="214dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="510dp"
+
+        android:background="@color/light_blue"></View>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Date:"
         android:id="@+id/date"
-        android:textSize="22dp"
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="60sp"
         android:layout_marginTop="193dp"
         android:textStyle="bold"
-        android:paddingBottom="5dp"
         />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="12/12/2022"
         android:id="@+id/dateview"
-        android:textSize="22dp"
-        android:textColor="@color/black"
-        android:layout_below="@id/date"
-        android:paddingBottom="5dp"
-        android:layout_marginStart="40dp"
-        android:textStyle="italic"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Product:"
-        android:textSize="22dp"
-        android:textColor="@color/black"
-        android:layout_toRightOf="@id/date"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="193dp"
-        android:textStyle="bold"
-        android:id="@+id/product"
-        android:paddingBottom="5dp"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="chocker"
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/product"
-        android:layout_toRightOf="@id/dateview"
-        android:layout_marginStart="95dp"
+        android:layout_marginStart="37sp"
+        android:layout_marginTop="227dp"
         android:textStyle="italic"
-        android:paddingBottom="5dp"
-        android:id="@+id/productviewview"/>
+        android:paddingBottom="15dp" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quantity:"
+        android:text="Liter:"
+
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="265sp"
+        android:layout_marginTop="193dp"
+        android:textStyle="bold"
+        android:id="@+id/liter"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="40"
 
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/dateview"
-        android:layout_marginStart="50dp"
-        android:textStyle="bold"
-        android:paddingVertical="5dp"
-        android:id="@+id/quantity"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:layout_marginStart="80dp"
-        android:textSize="22sp"
-        android:textColor="@color/black"
-        android:layout_below="@id/quantity"
+        android:layout_marginStart="275sp"
+        android:layout_marginTop="227dp"
         android:textStyle="italic"
-        android:paddingBottom="5dp"
-        android:id="@+id/quantityview"/>
+        android:paddingBottom="15dp"
+        android:id="@+id/literview"/>
+
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/fat"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:text="Units(kg):"
+
+        android:layout_marginStart="60sp"
+        android:layout_marginTop="271dp"
+        android:paddingBottom="15dp"
+        android:text="Fat:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5"
+
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/productviewview"
-        android:layout_toRightOf="@id/perquantity"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="69sp"
+        android:layout_marginTop="300dp"
+        android:textStyle="italic"
+        android:paddingBottom="15dp"
+        android:id="@+id/fatview"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SNF:"
+
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="265sp"
+        android:layout_marginTop="271dp"
         android:textStyle="bold"
-        android:id="@+id/unit"
-        android:paddingVertical="5dp"
+        android:id="@+id/snf"
         />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="40"
-        android:id="@+id/unitview"
+        android:text="8.3"
+        android:id="@+id/snfview"
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/unit"
-        android:layout_toRightOf="@id/perquantity"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="268sp"
+        android:layout_marginTop="300dp"
         android:textStyle="italic"
-        android:paddingBottom="5dp" />
+        android:paddingBottom="15dp" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Per Quantity(Rs):"
-        android:textSize="22sp"
+        android:text="Per liter(Rs):"
+
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_below="@id/quantityview"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="37sp"
+        android:layout_marginTop="348dp"
         android:textStyle="bold"
-        android:paddingVertical="5dp"
-        android:id="@+id/perquantity"/>
+        android:paddingBottom="15dp"
+        android:id="@+id/perliter"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1600"
+        android:text="85"
+
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/perquantity"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="69sp"
+        android:layout_marginTop="375dp"
         android:textStyle="italic"
-        android:id="@+id/perquantityview"
-        android:paddingBottom="5dp" />
+        android:id="@+id/perliterview"
+        android:paddingBottom="15dp" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="300dp"
+        android:layout_marginStart="40dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="415dp"
+
+        android:background="@color/light_blue"></View>
+
+
+
+
+
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Total Price(Rs):"
+
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/perquantityview"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="100sp"
+
+        android:layout_marginTop="425dp"
         android:textStyle="bold"
-        android:paddingBottom="8dp"
+        android:paddingBottom="15dp"
         android:id="@+id/totalprice"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3200"
+        android:text="920"
+
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_below="@id/totalprice"
+        android:layout_marginStart="260sp"
+        android:layout_marginTop="425dp"
         android:textStyle="italic"
         android:id="@+id/totalpriceview"
-        android:paddingVertical="5dp"
-        android:layout_marginStart="70dp"/>
+        android:paddingBottom="15dp" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -181,33 +228,36 @@
 
         android:textSize="22sp"
         android:textColor="@color/black"
-        android:layout_marginStart="245sp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="240sp"
+
+        android:layout_marginTop="520dp"
         android:textStyle="bold"
+        android:paddingBottom="15dp"
         android:id="@+id/signature"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Customer Support:"
         android:id="@+id/customersupport"
+
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_marginStart="67sp"
+        android:layout_marginStart="70sp"
         android:layout_marginTop="620dp"
-        android:textStyle="normal" />
+        android:textStyle="normal"
+        android:paddingBottom="15dp" />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="9845211112"
 
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_marginStart="223sp"
+        android:layout_marginStart="225sp"
         android:layout_marginTop="620dp"
         android:textStyle="bold"
         android:id="@+id/phonenumber"
-        />
-
+        android:paddingBottom="15dp" />
 
 
 </RelativeLayout>

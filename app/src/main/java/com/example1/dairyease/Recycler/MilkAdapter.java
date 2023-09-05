@@ -40,33 +40,35 @@ public class MilkAdapter extends RecyclerView.Adapter<MilkAdapter.MilkListViewHo
     @Override
     public void onBindViewHolder(@NonNull MilkAdapter.MilkListViewHolder holder, int position) {
 
-        MilkResponse.Data milkData = milkResponseList.get(position);
+        if (position < milkResponseList.size()) {
 
-        holder.tvMilkDate.setText(milkData.getDate());
-        holder.tvMilkPrice.setText(String.valueOf(milkData.getBalance()));
-        holder.tvshift.setText(milkData.getShift());
+            final MilkResponse.Data milkData = milkResponseList.get(position);
 
-        holder.milkRecyclerDesign.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            holder.tvMilkDate.setText(milkData.getDate());
+            holder.tvMilkPrice.setText(String.valueOf(milkData.getBalance()));
+            holder.tvshift.setText(milkData.getShift());
 
-                SharedPreferences sharedPreferences = context.getSharedPreferences("MilkData", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("Date", milkData.getDate());
-                editor.putString("liter", milkData.getLiter());
-                editor.putInt("balance", milkData.getBalance());
-                editor.putInt("perLiterAmt", milkData.getPer_liter_amt());
-                editor.putInt("totalFat", milkData.getTotal_fat());
-                editor.putInt("totalSnf", milkData.getTotal_snf());
-                editor.putString("shift", milkData.getShift());
+            holder.milkRecyclerDesign.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                editor.apply();
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("MilkData", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("Date", milkData.getDate());
+                    editor.putString("liter", milkData.getLiter());
+                    editor.putInt("balance", milkData.getBalance());
+                    editor.putFloat("perLiterAmt", milkData.getPer_liter_amt());
+                    editor.putFloat("totalFat", milkData.getTotal_fat());
+                    editor.putFloat("totalSnf", milkData.getTotal_snf());
+                    editor.putString("shift", milkData.getShift());
 
-                Intent i = new Intent(context, MilkStatementActivity.class);
-                context.startActivity(i);
-            }
-        });
+                    editor.apply();
 
+                    Intent i = new Intent(context, MilkStatementActivity.class);
+                    context.startActivity(i);
+                }
+            });
+        }
     }
 
     @Override

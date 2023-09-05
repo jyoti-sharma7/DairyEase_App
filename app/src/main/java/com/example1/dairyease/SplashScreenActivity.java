@@ -29,7 +29,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         boolean isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false);
 
         if (isLoggedIn) {
-            Intent intent = new Intent(this, Customer_DashboardActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish(); // Optional: To prevent returning to this activity from the dashboard
         } else
@@ -62,5 +62,5 @@ public class SplashScreenActivity extends AppCompatActivity {
             }, 2000);
 
         }
-        }
+    }
 }

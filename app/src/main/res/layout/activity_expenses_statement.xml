@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Expenses.ExpensesStatementActivity">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:src="@drawable/backgroundwithcurves"
+        />
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -42,21 +50,19 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="80dp"
+        android:layout_height="90dp"
+
+        android:layout_marginTop="85dp"
         android:layout_marginHorizontal="15dp"
         app:cardCornerRadius="10dp"
         >
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
             android:src="@drawable/expen"
-            android:layout_marginTop="17dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="14dp"
             />
 
 
@@ -65,8 +71,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rs."
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="17dp"
             android:textSize="17dp"
             />
 
@@ -75,8 +81,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3290.0"
-            android:layout_marginStart="87dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="17dp"
             android:textSize="17dp"
             />
 
@@ -85,25 +91,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Expenses"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="40dp"
             android:textSize="17dp"
             />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/demo1"
+        android:id="@+id/cardviewdown"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="190dp"
         android:layout_marginHorizontal="15dp"
         app:cardCornerRadius="10dp"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -113,8 +116,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date :"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
@@ -125,8 +126,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="12/12/2022"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Date"
+                android:layout_below="@+id/Date"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
@@ -137,9 +137,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Product :"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginEnd="75dp"
+                android:layout_toRightOf="@id/Date"
+                android:layout_marginStart="130dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -149,9 +148,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chocker"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Product"
-                android:layout_marginEnd="82dp"
+                android:layout_below="@id/Product"
+                android:layout_toRightOf="@id/tvDate"
+                android:layout_marginStart="100dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -160,10 +159,8 @@
                 android:id="@+id/EGbar1"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ProductEnter"
-                android:layout_marginTop="10dp"
+                android:layout_below="@id/tvDate"
+                android:layout_marginTop="12dp"
                 android:layout_marginHorizontal="25dp"
                 ></androidx.cardview.widget.CardView>
 
@@ -172,8 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quantity :"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EGbar1"
+                android:layout_below="@id/EGbar1"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
@@ -181,23 +177,22 @@
 
             <TextView
                 android:id="@+id/QuantityEnter"
-                android:layout_width="8dp"
-                android:layout_height="21dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="38dp"
                 android:layout_marginTop="10dp"
                 android:text="5"
                 android:textSize="19dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Quantity" />
+                android:layout_below="@id/Quantity" />
 
             <TextView
                 android:id="@+id/UNITS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Units(Kg) :"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EGbar1"
-                android:layout_marginEnd="70dp"
+                android:layout_below="@id/EGbar1"
+                android:layout_toRightOf="@id/Quantity"
+                android:layout_marginStart="95dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -207,9 +202,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8.3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/UNITS"
-                android:layout_marginEnd="95dp"
+                android:layout_toRightOf="@id/QuantityEnter"
+                android:layout_below="@id/UNITS"
+                android:layout_marginStart="180dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -218,9 +213,7 @@
                 android:id="@+id/EGbar2"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/unitsEnter"
+                android:layout_below="@id/unitsEnter"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="25dp"
                 ></androidx.cardview.widget.CardView>
@@ -230,9 +223,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Per Quantity(Rs.) :"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EGbar2"
-                android:layout_marginStart="38dp"
+                android:layout_below="@id/EGbar2"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -242,9 +234,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8500"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/perQuantity"
-                android:layout_marginStart="45dp"
+                android:layout_below="@id/perQuantity"
+                android:layout_marginStart="43dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -255,9 +246,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shift :"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/EGbar2"
-                android:layout_marginEnd="105dp"
+                android:layout_below="@id/EGbar2"
+                android:layout_toRightOf="@id/perQuantity"
+                android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
@@ -267,15 +258,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Morning"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvshift"
-                android:layout_marginEnd="80dp"
+                android:layout_below="@id/tvshift"
+                android:layout_toRightOf="@id/AmountEnter"
+                android:layout_marginStart="130dp"
                 android:layout_marginTop="10dp"
                 android:textSize="19dp"
                 />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -286,7 +277,7 @@
         android:id="@+id/btn_fINISH"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/inter_bold"
         android:text="FINISH"
         android:textSize="25dp"
@@ -294,10 +285,8 @@
         app:cornerRadius="10dp"
         android:textColor="@color/white"
         android:backgroundTint="@color/light_blue"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/demo1"
+        android:layout_below="@id/cardviewdown"
         android:layout_marginHorizontal="20dp"
         />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

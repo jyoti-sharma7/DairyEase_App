@@ -1,6 +1,8 @@
 package com.example1.dairyease.Recycler;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example1.dairyease.Expenses.ExpensesStatementActivity;
 import com.example1.dairyease.ModelResponse.ProductList;
+import com.example1.dairyease.Product.ProductDetailActivity;
 import com.example1.dairyease.R;
 
 import java.util.List;
@@ -31,13 +35,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public ProductListAdapter.ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-       View view = LayoutInflater.from(context).inflate(R.layout.item_product_recycler,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_product_recycler,parent,false);
         return new ProductViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductListAdapter.ProductViewHolder holder, int position) {
-       // holder.bind(productLists.get(position));
+        // holder.bind(productLists.get(position));
 
         if (productLists != null && position < productLists.size()) {
             holder.bind(productLists.get(position));
@@ -63,8 +67,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             tvQuantity = itemView.findViewById(R.id.tvQuantity);
             tvPerPrice = itemView.findViewById(R.id.tvPerPrice);
 
-
-
         }
 
 
@@ -75,6 +77,26 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             tvPerPrice.setText(productList.getPrice());
 
             Glide.with(context).load(productList.getProduct_image_url()).into(imgproduct);
+
+            rvllProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(context, ProductDetailActivity.class);
+                    context.startActivity(i);
+
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("ProductData", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("BrandName", productList.getBrand());
+                    editor.putString("ProductName", productList.getName());
+                    editor.putString("perPrice", productList.getPrice());
+                    editor.putInt("QuantityAmt", productList.getQuantity());
+                    editor.putString("ProductDiscription", productList.getDescription());
+                    editor.putString("imageUrl", productList.getProduct_image_url());
+                    editor.apply();
+
+                }
+            });
 
 
 

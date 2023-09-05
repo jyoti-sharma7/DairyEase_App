@@ -11,6 +11,7 @@
     <ImageView
         android:layout_width="342dp"
         android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
         android:layout_height="555dp"
         android:layout_marginTop="60dp"
         android:id="@+id/border"
@@ -22,7 +23,7 @@
 
         android:textSize="26dp"
         android:textColor="@color/light_blue"
-        android:layout_marginStart="145sp"
+        android:layout_marginStart="130sp"
         android:layout_marginTop="100dp"
 
         android:textStyle="bold"
@@ -37,15 +38,13 @@
 
         android:background="@color/light_blue"/>
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PAYMENT RECEIPT"
-
-
         android:textSize="19dp"
         android:textColor="@color/black"
-        android:layout_marginStart="119sp"
-        android:layout_marginTop="130dp"
+        android:layout_marginStart="115sp"
+        android:layout_marginTop="133dp"
 
         android:textStyle="normal"
         android:paddingBottom="15dp" />
@@ -175,8 +174,8 @@
         android:id="@+id/totalprice"/>
     <View
         android:id="@+id/view1"
-        android:layout_width="300dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="50dp"
         android:layout_height="2dp"
         android:layout_marginTop="415dp"
 
@@ -207,31 +206,32 @@
     <View
         android:id="@+id/view"
         android:layout_width="120dp"
-        android:layout_marginStart="214dp"
+        android:layout_marginStart="200dp"
         android:layout_height="2dp"
         android:layout_marginTop="510dp"
+        android:layout_marginEnd="10dp"
 
         android:background="@color/light_blue"></View>
 
 
     <TextView
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:text="Customer Support:"
         android:id="@+id/customersupport"
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_marginStart="67sp"
+        android:layout_marginStart="65sp"
         android:layout_marginTop="620dp"
         android:textStyle="normal"
         android:paddingBottom="15dp" />
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="9845211112"
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_marginStart="223sp"
+        android:layout_marginStart="220sp"
         android:layout_marginTop="620dp"
         android:textStyle="bold"
         android:id="@+id/phonenumber"

@@ -29,7 +29,7 @@ public class MilkFragment extends Fragment {
 
     RecyclerView rvMilkDetail;
     List<MilkResponse.Data> milkResponseList;
-    Context context;
+    //Context context;
 
 
 

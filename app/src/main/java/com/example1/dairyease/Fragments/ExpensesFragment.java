@@ -48,7 +48,7 @@ public class ExpensesFragment extends Fragment {
         String accessToken = sharedPreferences.getString("TOKEN","");
 
         rvExpensesDetail = view.findViewById(R.id.rvExpensesDetail);
-        rvExpensesDetail.setLayoutManager(new LinearLayoutManager(requireContext()));
+        // rvExpensesDetail.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         Call<ExpensesResponse> call = RetrofitClient
                 .getInstance()
@@ -61,6 +61,7 @@ public class ExpensesFragment extends Fragment {
                 if(response.isSuccessful()){
                     expensesDataList = response.body().getData();
                     rvExpensesDetail.setAdapter(new ExpensesAdapter(getActivity(), expensesDataList));
+                    rvExpensesDetail.setLayoutManager(new LinearLayoutManager(requireContext()));
                 } else {
                     Toast.makeText(requireContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                 }

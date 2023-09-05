@@ -40,12 +40,12 @@ public class ExpensespdfActivity extends AppCompatActivity {
         String Units = sharedPreferences1.getString("Units","");
         String Per_Quantity = sharedPreferences1.getString("Per_Quantity","");
 
-        dateview.setText("Date" +date);
-        totalpriceview.setText("Total_Price"+Total_Price);
-        tvProductName.setText("Product_name"+ Productname);
-        unitview.setText("Quantity"+Quantity);
-        quantityview.setText("Units"+Units);
-        tvPerUnit.setText("AmountEnter"+Per_Quantity);
+        dateview.setText("" +date);
+        totalpriceview.setText(""+Total_Price);
+        tvProductName.setText(""+ Productname);
+        unitview.setText(""+Quantity);
+        quantityview.setText(""+Units);
+        tvPerUnit.setText(""+Per_Quantity);
         //tvShiftEnter.setText("Shift"+Shift);
 
 
