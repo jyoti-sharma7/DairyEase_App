@@ -37,8 +37,6 @@ public class LoginActivity extends AppCompatActivity {
         btn_login = findViewById(R.id.btn_login);
         ForgetPass = findViewById(R.id.ForgetPass);
 
-
-
         //forget pass
         ForgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,32 +62,34 @@ public class LoginActivity extends AppCompatActivity {
 
                         call.enqueue(new Callback<LoginResponse>() {
                             @Override
-                            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response)
-                            {
-                                LoginResponse loginResponse = response.body();
-                                if(response.isSuccessful()){
+                            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                                if (response.isSuccessful()) {
+                                    LoginResponse loginResponse = response.body();
+                                    if (loginResponse != null) {
+                                        String message = loginResponse.getMessage();
 
-                                    SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putBoolean("is_logged_in", true);
-                                    editor.putString("TOKEN",loginResponse.getAccessToken());
-                                    editor.apply();
+                                        if (loginResponse.getStatus() == 1 && "User logged in successfully".equals(message)) {
+                                            SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                                            editor.putBoolean("is_logged_in", true);
+                                            editor.putString("TOKEN", loginResponse.getAccessToken());
+                                            editor.apply();
 
-                                    Toast.makeText(LoginActivity.this, loginResponse.getMessage(),Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(i);
-                                    finish();
-                                } else  {
-                                    // Handle non-successful response (e.g., login failed)
-                                    if (response.errorBody() != null) {
-                                        try {
-                                            String errorBody = response.errorBody().string();
-                                            // You can parse the error message from the errorBody if available
-                                            Toast.makeText(LoginActivity.this, errorBody, Toast.LENGTH_SHORT).show();
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
+                                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(i);
+                                            finish();
+                                        } else if (loginResponse.getStatus() == 0 && "Password didn't match".equals(message)) {
+                                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, "Login failed: " + message, Toast.LENGTH_SHORT).show();
                                         }
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, "Response body is null", Toast.LENGTH_SHORT).show();
                                     }
+                                } else {
+                                    // Handle non-successful response (e.g., login failed)
+                                    Toast.makeText(LoginActivity.this, "Password didn't match.", Toast.LENGTH_SHORT).show();
                                 }
                             }
 

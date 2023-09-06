@@ -48,7 +48,7 @@ public class NewpasswordActivity extends AppCompatActivity {
                     Toast.makeText(NewpasswordActivity.this, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show();
                 } else if (!password.equals(password_confirmation)) {
                     Toast.makeText(NewpasswordActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(password.equals(password_confirmation)) {
                     SharedPreferences sharedPreferences = getSharedPreferences("otp_token", MODE_PRIVATE);
                     String accessToken = sharedPreferences.getString("TOKEN", "");
 
@@ -62,7 +62,8 @@ public class NewpasswordActivity extends AppCompatActivity {
                         public void onResponse(Call<NewPasswordResponse> call, Response<NewPasswordResponse> response) {
                             if (response.isSuccessful()) {
                                 NewPasswordResponse newPasswordResponse = response.body();
-                                if (newPasswordResponse != null) {
+                                String message = newPasswordResponse.getMessage();
+                                if (newPasswordResponse != null && "Successfully Set New Password".equals(message) && newPasswordResponse.getStatus()==200) {
                                     Toast.makeText(NewpasswordActivity.this, newPasswordResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(NewpasswordActivity.this, LoginActivity.class);
                                     startActivity(i);

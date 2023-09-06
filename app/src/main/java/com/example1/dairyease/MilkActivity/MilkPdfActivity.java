@@ -31,8 +31,8 @@ public class MilkPdfActivity extends AppCompatActivity {
         String date = sharedPreferences2.getString("Date","");
         String liter = sharedPreferences2.getString("liter","");
         float perliter = sharedPreferences2.getFloat("perLiterAmt",0.0f);
-        float totalFat = sharedPreferences2.getFloat("totalFat",0.0f);
-        float totalSnf = sharedPreferences2.getFloat("totalSnf",0.0f);
+        String totalFat = sharedPreferences2.getString("totalFat","");
+        String totalSnf = sharedPreferences2.getString("totalSnf","");
 
         totalpriceview.setText(""+Balance);
         dateview.setText("" + date);

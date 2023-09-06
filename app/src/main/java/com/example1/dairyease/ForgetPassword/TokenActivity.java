@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example1.dairyease.EmailVerifyActivity;
 import com.example1.dairyease.ModelResponse.TokenOTPResponse;
 import com.example1.dairyease.R;
 import com.example1.dairyease.RetrofitClient;
@@ -29,7 +30,6 @@ public class TokenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_token);
 
         Enterotp = findViewById(R.id.Enterotp);
-
         enter = findViewById(R.id.enter);
 
         enter.setOnClickListener(new View.OnClickListener() {
@@ -38,43 +38,49 @@ public class TokenActivity extends AppCompatActivity {
 
                 String otp = Enterotp.getText().toString().trim();
 
-                Call<TokenOTPResponse> call = RetrofitClient
-                        .getInstance()
-                        .getApi()
-                        .verifyOtp(otp);
-                call.enqueue(new Callback<TokenOTPResponse>() {
-                    @Override
-                    public void onResponse(Call<TokenOTPResponse> call, Response<TokenOTPResponse> response) {
-                        TokenOTPResponse otpResponse = response.body();
+                if (otp.isEmpty()) {
+                    // Field is empty, show a message
+                    Toast.makeText(TokenActivity.this, "The field is empty", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Field is not empty, proceed with OTP verification
+                    Call<TokenOTPResponse> call = RetrofitClient
+                            .getInstance()
+                            .getApi()
+                            .verifyOtp(otp);
+                    call.enqueue(new Callback<TokenOTPResponse>() {
+                        @Override
+                        public void onResponse(Call<TokenOTPResponse> call, Response<TokenOTPResponse> response) {
+                            TokenOTPResponse otpResponse = response.body();
 
-                        if (response.isSuccessful() && otpResponse != null) {
-                            if ("Success".equals(otpResponse.getMessage())) {
-                                // OTP verification was successful, navigate to NewpasswordActivity
-                                Toast.makeText(getApplicationContext(), "OTP Verification Successful", Toast.LENGTH_SHORT).show();
+                            if (response.isSuccessful() && otpResponse != null) {
+                                if (otpResponse.getStatus() == 200) {
+                                    // OTP verification was successful, navigate to NewpasswordActivity
+                                    Toast.makeText(getApplicationContext(), "OTP Verification Successful", Toast.LENGTH_SHORT).show();
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("otp_token", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("TOKEN", otpResponse.getToken());
-                                editor.apply();
+                                    SharedPreferences sharedPreferences = getSharedPreferences("otp_token", MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("TOKEN", otpResponse.getToken());
+                                    editor.apply();
 
-                                Intent i = new Intent(TokenActivity.this, NewpasswordActivity.class);
-                                startActivity(i);
-                                finish();
+                                    Intent i = new Intent(TokenActivity.this, NewpasswordActivity.class);
+                                    startActivity(i);
+                                    finish();
+                                } else {
+                                    // OTP verification failed, show a message
+                                    Toast.makeText(getApplicationContext(), "OTP Invalid", Toast.LENGTH_LONG).show();
+                                }
                             } else {
-                                // OTP verification failed, show a message
-                                Toast.makeText(getApplicationContext(), otpResponse.getMessage(), Toast.LENGTH_LONG).show();
+                                // Handle other response statuses or errors
+                                Toast.makeText(getApplicationContext(), "Error in OTP Verification", Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            // Handle other response statuses or errors
-                            Toast.makeText(getApplicationContext(), "Error in OTP Verification", Toast.LENGTH_LONG).show();
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<TokenOTPResponse> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<TokenOTPResponse> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
     }
