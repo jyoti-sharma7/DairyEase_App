@@ -4,6 +4,7 @@ import com.example1.dairyease.ModelResponse.CategoryResponse;
 import com.example1.dairyease.ModelResponse.DashBoardResponse;
 import com.example1.dairyease.ModelResponse.EventResponse;
 import com.example1.dairyease.ModelResponse.ExpanceBalanceResponse;
+import com.example1.dairyease.ModelResponse.ExpensesMorningResponse;
 import com.example1.dairyease.ModelResponse.ExpensesResponse;
 import com.example1.dairyease.ModelResponse.ForgetPasswordResponse;
 import com.example1.dairyease.ModelResponse.LoginResponse;
@@ -108,6 +109,14 @@ public interface ApiInterface {
     Call<ExpanceBalanceResponse> getExpensesBalance(
             @Header("Authorization") String accessToken
     );
+
+    @GET("expenses?shift=morning")
+    Call<ExpensesMorningResponse> fetchMorningExpenses(
+            @Header("Authorization") String accessToken
+    );
+
+
+
 
     @GET("list-product")
     Call<ProductResponse> getProducts(

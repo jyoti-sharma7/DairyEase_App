@@ -55,7 +55,7 @@ public class NewpasswordActivity extends AppCompatActivity {
                     Call<NewPasswordResponse> callNew = RetrofitClient
                             .getInstance()
                             .getApi()
-                            .resetPassword(password, password_confirmation, "Bearer" + accessToken);
+                            .resetPassword(password, password_confirmation,"Bearer " + accessToken);
 
                     callNew.enqueue(new Callback<NewPasswordResponse>() {
                         @Override
@@ -89,7 +89,6 @@ public class NewpasswordActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<NewPasswordResponse> call, Throwable t) {
-                            t.printStackTrace();
                             Toast.makeText(NewpasswordActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });

@@ -74,6 +74,7 @@ public class ForgetPassActivity extends AppCompatActivity {
                                 if( forgetPasswordResponse.getStatus()==200 && "OTP sent successfully".equals(message)){
                                     Toast.makeText(ForgetPassActivity.this, forgetPasswordResponse.getMessage(),Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(ForgetPassActivity.this,TokenActivity.class);
+                                    intent.putExtra("email",email);
                                     startActivity(intent);
                                     finish();
                                 } else{

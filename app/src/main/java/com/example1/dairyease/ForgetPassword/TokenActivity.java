@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example1.dairyease.EmailVerifyActivity;
@@ -23,6 +24,7 @@ public class TokenActivity extends AppCompatActivity {
 
     EditText Enterotp;
     Button enter;
+    TextView tvEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,12 @@ public class TokenActivity extends AppCompatActivity {
 
         Enterotp = findViewById(R.id.Enterotp);
         enter = findViewById(R.id.enter);
+        tvEmail = findViewById(R.id.tvEmail);
+
+        Intent intent = getIntent();
+        String userEmail = intent.getStringExtra("email");
+        tvEmail.setText(userEmail);
+
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override

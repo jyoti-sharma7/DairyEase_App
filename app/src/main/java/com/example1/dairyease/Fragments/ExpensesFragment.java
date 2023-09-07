@@ -1,6 +1,7 @@
 package com.example1.dairyease.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -11,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example1.dairyease.Expenses.ExpensesMorningDataActivity;
 import com.example1.dairyease.ModelResponse.ExpanceBalanceResponse;
 import com.example1.dairyease.ModelResponse.ExpensesResponse;
 import com.example1.dairyease.R;
@@ -32,6 +35,7 @@ public class ExpensesFragment extends Fragment {
     List<ExpensesResponse.ExpensesData> expensesDataList;
     TextView balanceAMOUNT;
     //Context context;
+    Button btnMorning;
 
     public ExpensesFragment() {
         // Required empty public constructor
@@ -77,6 +81,17 @@ public class ExpensesFragment extends Fragment {
                 Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+
+        btnMorning = view.findViewById(R.id.btnMorning);
+        btnMorning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ExpensesMorningDataActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }
