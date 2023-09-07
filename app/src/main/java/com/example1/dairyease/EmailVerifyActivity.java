@@ -27,7 +27,7 @@ public class EmailVerifyActivity extends AppCompatActivity {
     EditText Enterotp;
     Button enter;
     TextView tvResend;
-    String tvEmail;
+    TextView tvEmail;
 
 
     @Override
@@ -35,10 +35,14 @@ public class EmailVerifyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email_verify);
 
-        tvEmail = getIntent().getStringExtra("userEmail");
+        tvEmail = findViewById(R.id.tvEmail);
         Enterotp = findViewById(R.id.Enterotp);
         tvResend = findViewById(R.id.tvResend);
         enter = findViewById(R.id.enter);
+
+        Intent intent = getIntent();
+        String userEmail = intent.getStringExtra("userEmail");
+        tvEmail.setText(userEmail);
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,13 +62,12 @@ public class EmailVerifyActivity extends AppCompatActivity {
                             VerifyOtpResponse verifyOtpResponse = response.body();
                             if (response.isSuccessful()) {
                                 String message = verifyOtpResponse.getMessage();
-                                if (message != null && message.equals("Success")) {
+                                if (message != null && message.equals("Email verified successfully.")) {
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                     Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                                     startActivity(i);
-                                    finish();
                                 } else {
-                                    Toast.makeText(getApplicationContext(), "Invalid OTP", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 Toast.makeText(getApplicationContext(), "Invalid OTP", Toast.LENGTH_SHORT).show();
@@ -73,7 +76,8 @@ public class EmailVerifyActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<VerifyOtpResponse> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Invalid OTP", Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
+                           // Toast.makeText(getApplicationContext(), "Invalid OTP", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

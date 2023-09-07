@@ -27,10 +27,10 @@ public class MilkPdfActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences2 = getSharedPreferences("MilkData", Context.MODE_PRIVATE);
 
-        int Balance = sharedPreferences2.getInt("balance",0);
+        String Balance = sharedPreferences2.getString("balance","");
         String date = sharedPreferences2.getString("Date","");
         String liter = sharedPreferences2.getString("liter","");
-        float perliter = sharedPreferences2.getFloat("perLiterAmt",0.0f);
+        String perliter = sharedPreferences2.getString("perLiterAmt","");
         String totalFat = sharedPreferences2.getString("totalFat","");
         String totalSnf = sharedPreferences2.getString("totalSnf","");
 

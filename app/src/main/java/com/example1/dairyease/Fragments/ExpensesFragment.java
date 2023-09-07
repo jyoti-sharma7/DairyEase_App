@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example1.dairyease.ModelResponse.ExpanceBalanceResponse;
 import com.example1.dairyease.ModelResponse.ExpensesResponse;
 import com.example1.dairyease.R;
 import com.example1.dairyease.Recycler.ExpensesAdapter;
@@ -28,8 +30,8 @@ public class ExpensesFragment extends Fragment {
 
     RecyclerView rvExpensesDetail;
     List<ExpensesResponse.ExpensesData> expensesDataList;
-
-    Context context;
+    TextView balanceAMOUNT;
+    //Context context;
 
     public ExpensesFragment() {
         // Required empty public constructor
@@ -43,6 +45,9 @@ public class ExpensesFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_expenses, container, false);
+
+        totalExpances(view);
+
 
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         String accessToken = sharedPreferences.getString("TOKEN","");
@@ -74,5 +79,34 @@ public class ExpensesFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void totalExpances(View view) {
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        String accessToken = sharedPreferences.getString("TOKEN","");
+
+        Call<ExpanceBalanceResponse> callE = RetrofitClient.getInstance().getApi().getExpensesBalance("Bearer " + accessToken);
+        callE.enqueue(new Callback<ExpanceBalanceResponse>() {
+            @Override
+            public void onResponse(Call<ExpanceBalanceResponse> call, Response<ExpanceBalanceResponse> response) {
+                ExpanceBalanceResponse expanceBalanceResponse = response.body();
+                if(response.isSuccessful()){
+                    balanceAMOUNT = view.findViewById(R.id.balanceAMOUNT);
+
+                    balanceAMOUNT.setText(expanceBalanceResponse.getTotal_balance());
+                } else {
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ExpanceBalanceResponse> call, Throwable t) {
+                t.printStackTrace();
+
+            }
+        });
+
+
     }
 }

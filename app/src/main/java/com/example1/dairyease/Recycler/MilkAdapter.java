@@ -48,6 +48,7 @@ public class MilkAdapter extends RecyclerView.Adapter<MilkAdapter.MilkListViewHo
             holder.tvMilkPrice.setText(String.valueOf(milkData.getBalance()));
             holder.tvshift.setText(milkData.getShift());
 
+
             holder.milkRecyclerDesign.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -56,8 +57,8 @@ public class MilkAdapter extends RecyclerView.Adapter<MilkAdapter.MilkListViewHo
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("Date", milkData.getDate());
                     editor.putString("liter", milkData.getLiter());
-                    editor.putInt("balance", milkData.getBalance());
-                    editor.putFloat("perLiterAmt", milkData.getPer_liter_amt());
+                    editor.putString("balance", milkData.getBalance());
+                    editor.putString("perLiterAmt", milkData.getPer_liter_amt());
                     editor.putString("totalFat", milkData.getFat_rate());
                     editor.putString("totalSnf", milkData.getSnf_rate());
                     editor.putString("shift", milkData.getShift());

@@ -7,11 +7,13 @@ public class MilkResponse {
     public Integer status;
     public String message;
     public List<Data> data;
+    private String total_balance;
 
-    public MilkResponse(Integer status, String message, List<Data> data) {
+    public MilkResponse(Integer status, String message, List<Data> data, String total_balance) {
         this.status = status;
         this.message = message;
         this.data = data;
+        this.total_balance = total_balance;
     }
 
     public Integer getStatus() {
@@ -38,6 +40,14 @@ public class MilkResponse {
         this.data = data;
     }
 
+    public String getTotal_balance() {
+        return total_balance;
+    }
+
+    public void setTotal_balance(String total_balance) {
+        this.total_balance = total_balance;
+    }
+
     public static class Data {
 
         public Integer id;
@@ -49,15 +59,15 @@ public class MilkResponse {
         public String per_snf_amt;
         public String snf_rate;
         public String liter;
-        public Float  total_fat;
-        public Float total_snf;
-        public Float per_liter_amt;
-        public Integer balance;
+        public String  total_fat;
+        public String total_snf;
+        public String per_liter_amt;
+        public String balance;
         public String created_at;
         public String updated_at;
 
 
-        public Data(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, Float total_fat, Float total_snf, Float per_liter_amt, Integer balance, String created_at, String updated_at) {
+        public Data(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, String total_fat, String total_snf, String per_liter_amt, String balance, String created_at, String updated_at) {
             this.id = id;
             this.user_id = user_id;
             this.shift = shift;
@@ -147,35 +157,35 @@ public class MilkResponse {
             this.liter = liter;
         }
 
-        public Float getTotal_fat() {
+        public String getTotal_fat() {
             return total_fat;
         }
 
-        public void setTotal_fat(Float total_fat) {
+        public void setTotal_fat(String total_fat) {
             this.total_fat = total_fat;
         }
 
-        public Float getTotal_snf() {
+        public String getTotal_snf() {
             return total_snf;
         }
 
-        public void setTotal_snf(Float total_snf) {
+        public void setTotal_snf(String total_snf) {
             this.total_snf = total_snf;
         }
 
-        public Float getPer_liter_amt() {
+        public String getPer_liter_amt() {
             return per_liter_amt;
         }
 
-        public void setPer_liter_amt(Float per_liter_amt) {
+        public void setPer_liter_amt(String per_liter_amt) {
             this.per_liter_amt = per_liter_amt;
         }
 
-        public Integer getBalance() {
+        public String getBalance() {
             return balance;
         }
 
-        public void setBalance(Integer balance) {
+        public void setBalance(String balance) {
             this.balance = balance;
         }
 

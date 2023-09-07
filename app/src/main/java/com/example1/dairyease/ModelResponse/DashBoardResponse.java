@@ -3,11 +3,11 @@ package com.example1.dairyease.ModelResponse;
 public class DashBoardResponse {
 
     private String profile_photo;
-    private Integer total_balance;
+    private String total_balance;
     private String total_milk;
     private String per_liter_amt;
 
-    public DashBoardResponse(String profile_photo, Integer total_balance, String total_milk, String per_liter_amt) {
+    public DashBoardResponse(String profile_photo, String total_balance, String total_milk, String per_liter_amt) {
         this.profile_photo = profile_photo;
         this.total_balance = total_balance;
         this.total_milk = total_milk;
@@ -22,11 +22,11 @@ public class DashBoardResponse {
         this.profile_photo = profile_photo;
     }
 
-    public Integer getTotal_balance() {
+    public String getTotal_balance() {
         return total_balance;
     }
 
-    public void setTotal_balance(Integer total_balance) {
+    public void setTotal_balance(String total_balance) {
         this.total_balance = total_balance;
     }
 

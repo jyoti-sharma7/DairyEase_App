@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example1.dairyease.ModelResponse.MilkBalanceResponse;
 import com.example1.dairyease.ModelResponse.MilkResponse;
 import com.example1.dairyease.R;
 import com.example1.dairyease.Recycler.MilkAdapter;
@@ -30,7 +32,7 @@ public class MilkFragment extends Fragment {
     RecyclerView rvMilkDetail;
     List<MilkResponse.Data> milkResponseList;
     //Context context;
-
+    TextView tvBalanceAMOUNT;
 
 
     public MilkFragment() {
@@ -44,6 +46,10 @@ public class MilkFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_milk, container, false);
+
+
+
+        totalBalance(view);
 
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         String accessToken = sharedPreferences.getString("TOKEN","");
@@ -77,6 +83,39 @@ public class MilkFragment extends Fragment {
 
 
         return view;
+
+    }
+
+    private void totalBalance(View view) {
+
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        String accessToken = sharedPreferences.getString("TOKEN","");
+
+        Call<MilkBalanceResponse> callB = RetrofitClient.getInstance().getApi().getBalance("Bearer " + accessToken);
+        callB.enqueue(new Callback<MilkBalanceResponse>() {
+            @Override
+            public void onResponse(Call<MilkBalanceResponse> call, Response<MilkBalanceResponse> response) {
+                MilkBalanceResponse milkBalanceResponse = response.body();
+                if(response.isSuccessful()){
+                    tvBalanceAMOUNT = view.findViewById(R.id.tvBalanceAMOUNT);
+
+                    tvBalanceAMOUNT.setText(milkBalanceResponse.getTotal_balance());
+                } else {
+                    Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<MilkBalanceResponse> call, Throwable t) {
+                t.printStackTrace();
+
+            }
+        });
+
+
+
 
     }
 }

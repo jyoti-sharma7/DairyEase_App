@@ -12,11 +12,13 @@ public class ExpensesResponse {
     @SerializedName("data")
     @Expose
     public List<ExpensesData> data;
+    private String total_balance;
 
-    public ExpensesResponse(Integer status, String message, List<ExpensesData> data) {
+    public ExpensesResponse(Integer status, String message, List<ExpensesData> data, String total_balance) {
         this.status = status;
         this.message = message;
         this.data = data;
+        this.total_balance = total_balance;
     }
 
 
@@ -42,6 +44,14 @@ public class ExpensesResponse {
 
     public void setData(List<ExpensesData> data) {
         this.data = data;
+    }
+
+    public String getTotal_balance() {
+        return total_balance;
+    }
+
+    public void setTotal_balance(String total_balance) {
+        this.total_balance = total_balance;
     }
 
     public static class ExpensesData {

@@ -32,6 +32,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+
+        if(bottomNavigationView.getSelectedItemId()==R.id.home){
+            super.onBackPressed();
+            finish();
+        }else {
+            bottomNavigationView.setSelectedItemId(R.id.home);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -68,14 +79,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+
+
     }
 
-    private  void replaceFragment(Fragment fragment) {
+    private  void loadFragment (Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container ,fragment);
         fragmentTransaction.commit();
 
     }
+
 
 }

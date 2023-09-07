@@ -119,13 +119,11 @@ public class RegistrationActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
 
-
-
                             if (response.isSuccessful()) {
                                 RegisterResponse registerResponse = response.body();
                                 Toast.makeText(RegistrationActivity.this,registerResponse.getMessage() , Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(RegistrationActivity.this, EmailVerifyActivity.class);
-                                i.putExtra("userEmail",email);
+                                i.putExtra("userEmail",registerResponse.getUser());
                                 startActivity(i);
 
                             }
@@ -137,7 +135,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             //t.printStackTrace();
 
-                             Toast.makeText(RegistrationActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                             Toast.makeText(RegistrationActivity.this,"Email already register.", Toast.LENGTH_LONG).show();
 
                         }
                     });

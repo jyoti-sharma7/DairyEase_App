@@ -3,9 +3,11 @@ package com.example1.dairyease.RetrofitInterface;
 import com.example1.dairyease.ModelResponse.CategoryResponse;
 import com.example1.dairyease.ModelResponse.DashBoardResponse;
 import com.example1.dairyease.ModelResponse.EventResponse;
+import com.example1.dairyease.ModelResponse.ExpanceBalanceResponse;
 import com.example1.dairyease.ModelResponse.ExpensesResponse;
 import com.example1.dairyease.ModelResponse.ForgetPasswordResponse;
 import com.example1.dairyease.ModelResponse.LoginResponse;
+import com.example1.dairyease.ModelResponse.MilkBalanceResponse;
 import com.example1.dairyease.ModelResponse.MilkResponse;
 import com.example1.dairyease.ModelResponse.ProductResponse;
 import com.example1.dairyease.ModelResponse.TokenOTPResponse;
@@ -91,8 +93,19 @@ public interface ApiInterface {
             @Header("Authorization") String accessToken
     );
 
+    @GET("list")
+    Call<MilkBalanceResponse> getBalance(
+            @Header("Authorization") String accessToken
+    );
+
     @GET("list-expenses")
     Call<ExpensesResponse> getExpensesList(
+            @Header("Authorization") String accessToken
+    );
+
+
+    @GET("list-expenses")
+    Call<ExpanceBalanceResponse> getExpensesBalance(
             @Header("Authorization") String accessToken
     );
 
