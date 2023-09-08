@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example1.dairyease.Expenses.ExpensesEveningDataActivity;
 import com.example1.dairyease.Expenses.ExpensesMorningDataActivity;
 import com.example1.dairyease.ModelResponse.ExpanceBalanceResponse;
 import com.example1.dairyease.ModelResponse.ExpensesResponse;
@@ -35,7 +36,7 @@ public class ExpensesFragment extends Fragment {
     List<ExpensesResponse.ExpensesData> expensesDataList;
     TextView balanceAMOUNT;
     //Context context;
-    Button btnMorning;
+    Button btnMorning,btnEvening;
 
     public ExpensesFragment() {
         // Required empty public constructor
@@ -89,6 +90,15 @@ public class ExpensesFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ExpensesMorningDataActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnEvening = view.findViewById(R.id.btnEvening);
+        btnEvening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getContext(), ExpensesEveningDataActivity.class);
+                startActivity(i);
             }
         });
 
