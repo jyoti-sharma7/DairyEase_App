@@ -3,6 +3,7 @@ package com.example1.dairyease.ForgetPassword;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +26,15 @@ public class ForgetPassActivity extends AppCompatActivity {
     EditText FPemail;
     Button submit;
 
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pass);
 
+        progressDialog = new ProgressDialog(this);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         //step1(set up tool bar & link in java)
@@ -41,7 +45,6 @@ public class ForgetPassActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
 
 
         FPemail = findViewById(R.id.FPemail);
@@ -55,51 +58,64 @@ public class ForgetPassActivity extends AppCompatActivity {
 
                 if(email.isEmpty()){
                     Toast.makeText(ForgetPassActivity.this,"Field is Empty",Toast.LENGTH_SHORT).show();
-                }else{
-                    Call<ForgetPasswordResponse> call = RetrofitClient
-                            .getInstance()
-                            .getApi()
-                            .sendOtp(email);
-
-                    call.enqueue(new Callback<ForgetPasswordResponse>() {
-                        @Override
-                        public void onResponse(Call<ForgetPasswordResponse> call, Response<ForgetPasswordResponse> response) {
-
-                            ForgetPasswordResponse forgetPasswordResponse = response.body();
-
-                            if(response.isSuccessful() && forgetPasswordResponse != null){
-
-                                String message = forgetPasswordResponse.getMessage();
-
-                                if( forgetPasswordResponse.getStatus()==200 && "OTP sent successfully".equals(message)){
-                                    Toast.makeText(ForgetPassActivity.this, forgetPasswordResponse.getMessage(),Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(ForgetPassActivity.this,TokenActivity.class);
-                                    intent.putExtra("email",email);
-                                    startActivity(intent);
-                                    finish();
-                                } else{
-                                    Toast.makeText(ForgetPassActivity.this, message,Toast.LENGTH_SHORT).show();
-                                }
-
-                            }
-                            else {
-                                Toast.makeText(ForgetPassActivity.this, "Email Not Found", Toast.LENGTH_LONG).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<ForgetPasswordResponse> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
-
+                }else {
+                    sendData();
                 }
             }
         });
 
+    }
 
+    private void sendData() {
+
+
+        String email = FPemail.getText().toString().trim();
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(true);
+        progressDialog.show();
+
+            Call<ForgetPasswordResponse> call = RetrofitClient
+                    .getInstance()
+                    .getApi()
+                    .sendOtp(email);
+
+            call.enqueue(new Callback<ForgetPasswordResponse>() {
+                @Override
+                public void onResponse(Call<ForgetPasswordResponse> call, Response<ForgetPasswordResponse> response) {
+
+
+                    ForgetPasswordResponse forgetPasswordResponse = response.body();
+
+                    if(response.isSuccessful() && forgetPasswordResponse != null){
+
+                        String message = forgetPasswordResponse.getMessage();
+
+                        if( forgetPasswordResponse.getStatus()==200 && "OTP sent successfully".equals(message)){
+
+                            Toast.makeText(ForgetPassActivity.this, forgetPasswordResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(ForgetPassActivity.this,TokenActivity.class);
+                            intent.putExtra("email",email);
+                            startActivity(intent);
+                            finish();
+                        } else{
+                            Toast.makeText(ForgetPassActivity.this, message,Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                    else {
+                        Toast.makeText(ForgetPassActivity.this, "Email Not Found", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ForgetPasswordResponse> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),t.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        }
 
 
     }
-}

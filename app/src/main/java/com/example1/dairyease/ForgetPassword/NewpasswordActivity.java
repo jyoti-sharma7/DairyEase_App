@@ -2,6 +2,7 @@ package com.example1.dairyease.ForgetPassword;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ public class NewpasswordActivity extends AppCompatActivity {
     EditText RPconformpass, RPpassword;
     Button sendButton;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +39,14 @@ public class NewpasswordActivity extends AppCompatActivity {
         RPpassword = findViewById(R.id.RPpassword);
         sendButton = findViewById(R.id.sendButton);
 
+        progressDialog = new ProgressDialog(this);
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String password = RPpassword.getText().toString().trim();
                 String password_confirmation = RPconformpass.getText().toString().trim();
+
 
                 if (password.isEmpty() || password_confirmation.isEmpty()) {
                     Toast.makeText(NewpasswordActivity.this, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
@@ -49,50 +55,63 @@ public class NewpasswordActivity extends AppCompatActivity {
                 } else if (!password.equals(password_confirmation)) {
                     Toast.makeText(NewpasswordActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 } else if(password.equals(password_confirmation)) {
-                    SharedPreferences sharedPreferences = getSharedPreferences("otp_token", MODE_PRIVATE);
-                    String accessToken = sharedPreferences.getString("TOKEN", "");
 
-                    Call<NewPasswordResponse> callNew = RetrofitClient
-                            .getInstance()
-                            .getApi()
-                            .resetPassword(password, password_confirmation,"Bearer " + accessToken);
-
-                    callNew.enqueue(new Callback<NewPasswordResponse>() {
-                        @Override
-                        public void onResponse(Call<NewPasswordResponse> call, Response<NewPasswordResponse> response) {
-                            if (response.isSuccessful()) {
-                                NewPasswordResponse newPasswordResponse = response.body();
-                                String message = newPasswordResponse.getMessage();
-                                if (newPasswordResponse != null && "Successfully Set New Password".equals(message) && newPasswordResponse.getStatus()==200) {
-                                    Toast.makeText(NewpasswordActivity.this, newPasswordResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(NewpasswordActivity.this, LoginActivity.class);
-                                    startActivity(i);
-                                    finish();
-                                } else {
-                                    Toast.makeText(NewpasswordActivity.this, "Response body is null", Toast.LENGTH_LONG).show();
-                                }
-                            } else {
-                                // Handle non-successful response (e.g., login failed)
-                                if (response.errorBody() != null) {
-                                    try {
-                                        String errorBody = response.errorBody().string();
-                                        // You can parse the error message from the errorBody if available
-                                        Toast.makeText(NewpasswordActivity.this, errorBody, Toast.LENGTH_LONG).show();
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                } else {
-                                    Toast.makeText(NewpasswordActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<NewPasswordResponse> call, Throwable t) {
-                            Toast.makeText(NewpasswordActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    getPassword();
                 }
+            }
+        });
+    }
+
+    private void getPassword() {
+
+        String password = RPpassword.getText().toString().trim();
+        String password_confirmation = RPconformpass.getText().toString().trim();
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(true);
+        progressDialog.show();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("otp_token", MODE_PRIVATE);
+        String accessToken = sharedPreferences.getString("TOKEN", "");
+
+        Call<NewPasswordResponse> callNew = RetrofitClient
+                .getInstance()
+                .getApi()
+                .resetPassword(password, password_confirmation,"Bearer " + accessToken);
+
+        callNew.enqueue(new Callback<NewPasswordResponse>() {
+            @Override
+            public void onResponse(Call<NewPasswordResponse> call, Response<NewPasswordResponse> response) {
+                if (response.isSuccessful()) {
+                    NewPasswordResponse newPasswordResponse = response.body();
+                    String message = newPasswordResponse.getMessage();
+                    if (newPasswordResponse != null && "Successfully Set New Password".equals(message) && newPasswordResponse.getStatus()==200) {
+                        Toast.makeText(NewpasswordActivity.this, newPasswordResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(NewpasswordActivity.this, LoginActivity.class);
+                        startActivity(i);
+                        finish();
+                    } else {
+                        Toast.makeText(NewpasswordActivity.this, "Response body is null", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    // Handle non-successful response (e.g., login failed)
+                    if (response.errorBody() != null) {
+                        try {
+                            String errorBody = response.errorBody().string();
+                            // You can parse the error message from the errorBody if available
+                            Toast.makeText(NewpasswordActivity.this, errorBody, Toast.LENGTH_LONG).show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        Toast.makeText(NewpasswordActivity.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<NewPasswordResponse> call, Throwable t) {
+                Toast.makeText(NewpasswordActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

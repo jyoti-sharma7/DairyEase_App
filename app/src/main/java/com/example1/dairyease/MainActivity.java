@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ProfileFragment profileFragment = new ProfileFragment();
     LogOutFragment logOutFragment = new LogOutFragment();
 
+
     private void showLogoutPopoutDialog(){
         LogoutPopoutDialog dialog = new LogoutPopoutDialog(this);
         dialog.show();

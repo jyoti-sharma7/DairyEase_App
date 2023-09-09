@@ -18,6 +18,7 @@ import com.example1.dairyease.ModelResponse.TokenOTPResponse;
 import com.example1.dairyease.ModelResponse.ProfileResponse;
 import com.example1.dairyease.ModelResponse.RegisterResponse;
 import com.example1.dairyease.ModelResponse.NewPasswordResponse;
+import com.example1.dairyease.ModelResponse.UpdateProfileResponse;
 import com.example1.dairyease.ModelResponse.VerifyOtpResponse;
 
 import okhttp3.MultipartBody;
@@ -88,8 +89,11 @@ public interface ApiInterface {
     );
 
     @Multipart
-    @PUT("profile")
-    Call<ResponseBody> updateProfilePicture(@Part MultipartBody.Part image);
+    @POST("update-profile")
+    Call<UpdateProfileResponse> updateProfilePicture(
+            @Part MultipartBody.Part profile_photo,
+            @Header("Authorization") String accessToken
+    );
 
 
     @GET("list")
