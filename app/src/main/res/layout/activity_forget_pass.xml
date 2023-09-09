@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ForgetPassword.ForgetPassActivity">
-
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,51 +26,35 @@
                     android:text="Forget Password"
                     android:textSize="20dp"
                     android:textColor="@color/white"
-
                     />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <TextView
+        android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/TVFpass"
-        android:text="Enter Your E-mail Id"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="130dp"
-        android:layout_marginStart="20dp"
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/FPemail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TVFpass"
+        android:text="Enter your email"
+        android:layout_marginStart="15dp"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
+    <EditText  android:id="@+id/FPemail"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="20dp"
-        android:hint="Email Address"/>
-
-    <Button
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:id="@+id/submit"
-        android:text="RESET"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/FPemail"
-        android:layout_marginTop="30dp"
-        android:layout_marginHorizontal="20dp"
-        android:textStyle="bold"
-        app:cornerRadius="10dp"
-        android:textColor="@color/white"
+        android:hint="Enter your email"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        />
+    <Button  android:id="@+id/submit"
+        android:layout_marginTop="20dp"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:textSize="25dp"
+        android:layout_marginStart="20dp"
         android:backgroundTint="@color/light_blue"/>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
