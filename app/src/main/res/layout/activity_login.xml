@@ -34,34 +34,78 @@
         android:textSize="26dp"
         android:id="@+id/wakeup"
         android:textStyle="bold" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
 
-    <EditText
-        android:id="@+id/login_email"
-        android:layout_width="333dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="127dp"
-        android:drawableLeft="@drawable/baseline_mail_outline_24"
-        android:drawablePadding="8dp"
-        android:hint="Email"
-        android:paddingLeft="8dp"
-        android:layout_marginLeft="5dp"
-        android:textSize="22dp" />
 
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="333dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:paddingLeft="8dp"
-        android:layout_marginLeft="5dp"
-        android:paddingRight="10dp"
-        android:layout_marginTop="18dp"
-        android:drawableLeft="@drawable/outline_privacy_tip_24"
-        android:drawablePadding="8dp"
-        android:hint="Password"
-        android:textSize="22dp" />
+        >
 
+        <EditText android:id="@+id/login_email"
+            android:layout_width="353dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="127dp"
+            android:drawableLeft="@drawable/baseline_mail_outline_24"
+            android:drawablePadding="8dp"
+            android:hint="Email"
+            android:background="@drawable/background_circleblue"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+
+
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="-2dp"
+
+            android:background="@color/darkblack"></View>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+        <View
+            android:id="@+id/view1"
+            android:layout_width="300dp"
+            android:layout_marginStart="40dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="-3dp"
+            android:background="@color/darkblack"></View>
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="353dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/background_circleblue"
+            android:layout_marginTop="18dp"
+            android:drawableLeft="@drawable/outline_privacy_tip_24"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:drawablePadding="7dp"
+            android:textSize="18dp" />
+
+        <ImageButton
+            android:id="@+id/passwordToggle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/outline_remove_red_eye_24"
+            android:background="@null"
+            android:layout_marginTop="-43dp"
+            android:layout_marginEnd="55dp"
+            android:layout_gravity="end"
+            android:contentDescription="Toggle Password Visibility" />
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/ForgetPass"
         android:layout_marginTop="8dp"
