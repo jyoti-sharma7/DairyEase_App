@@ -45,7 +45,8 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
             holder.tvDATE.setText(expensesData.getDate());
             holder.tvShift.setText(expensesData.getShift());
             holder.tvProductName.setText(expensesData.getProduct());
-            holder.tvPerPrice.setText(expensesData.getPer_quantity());
+            holder.tvPerPrice.setText(String.valueOf(expensesData.getTotal_price()));
+
 
             holder.expensesRecyclerDesign.setOnClickListener(new View.OnClickListener() {
                 @Override

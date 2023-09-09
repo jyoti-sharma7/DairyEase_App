@@ -170,7 +170,7 @@ public class ProfileFragment extends Fragment {
             RequestBody requestBody = RequestBody.create(MediaType.parse("image/jpeg"), bytes);
 
             // Create a MultipartBody.Part
-            MultipartBody.Part imagePart = MultipartBody.Part.createFormData("profile_photo", "profile.jpg", requestBody);
+            MultipartBody.Part imagePart = MultipartBody.Part.createFormData("image", "profile.jpg", requestBody);
 
             Call<UpdateProfileResponse> call1 = RetrofitClient
                     .getInstance()
