@@ -1,6 +1,7 @@
 package com.example1.dairyease.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -11,9 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example1.dairyease.MilkActivity.MilkEveningActivity;
+import com.example1.dairyease.MilkActivity.MilkMorningActivity;
 import com.example1.dairyease.ModelResponse.MilkBalanceResponse;
 import com.example1.dairyease.ModelResponse.MilkResponse;
 import com.example1.dairyease.R;
@@ -33,6 +37,7 @@ public class MilkFragment extends Fragment {
     List<MilkResponse.Data> milkResponseList;
     //Context context;
     TextView tvBalanceAMOUNT;
+    Button btnEvening,btnMorning;
 
 
     public MilkFragment() {
@@ -78,6 +83,25 @@ public class MilkFragment extends Fragment {
             @Override
             public void onFailure(Call<MilkResponse> call, Throwable t) {
                 t.printStackTrace();
+            }
+        });
+
+
+        btnEvening = view.findViewById(R.id.btnEvening);
+        btnEvening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MilkEveningActivity.class);
+                startActivity(i);
+            }
+        });
+
+        btnMorning = view.findViewById(R.id.btnMorning);
+        btnMorning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MilkMorningActivity.class);
+                startActivity(intent);
             }
         });
 

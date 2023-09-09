@@ -19,6 +19,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MilkActivity.MilkEveningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MilkActivity.MilkMorningActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Expenses.ExpensesEveningDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".Expenses.ExpensesMorningDataActivity"
             android:exported="false" />
         <activity

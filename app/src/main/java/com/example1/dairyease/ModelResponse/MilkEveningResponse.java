@@ -2,13 +2,15 @@ package com.example1.dairyease.ModelResponse;
 
 import java.util.List;
 
-public class MilkMorningResponse {
+public class MilkEveningResponse {
 
     private Integer status;
-    private String message;
-    private List<MilkMorningList> data;
 
-    public MilkMorningResponse(Integer status, String message, List<MilkMorningList> data) {
+    private String message;
+
+    private List<MilkEveningList> data;
+
+    public MilkEveningResponse(Integer status, String message, List<MilkEveningList> data) {
         this.status = status;
         this.message = message;
         this.data = data;
@@ -30,15 +32,15 @@ public class MilkMorningResponse {
         this.message = message;
     }
 
-    public List<MilkMorningList> getData() {
+    public List<MilkEveningList> getData() {
         return data;
     }
 
-    public void setData(List<MilkMorningList> data) {
+    public void setData(List<MilkEveningList> data) {
         this.data = data;
     }
 
-    public static class MilkMorningList {
+    public static class MilkEveningList {
 
         public Integer id;
         public Integer user_id;
@@ -56,7 +58,7 @@ public class MilkMorningResponse {
         public String created_at;
         public String updated_at;
 
-        public MilkMorningList(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, String total_fat, String total_snf, String per_liter_amt, String balance, String created_at, String updated_at) {
+        public MilkEveningList(Integer id, Integer user_id, String shift, String date, String per_fat_amt, String fat_rate, String per_snf_amt, String snf_rate, String liter, String total_fat, String total_snf, String per_liter_amt, String balance, String created_at, String updated_at) {
             this.id = id;
             this.user_id = user_id;
             this.shift = shift;
@@ -73,7 +75,6 @@ public class MilkMorningResponse {
             this.created_at = created_at;
             this.updated_at = updated_at;
         }
-
 
         public Integer getId() {
             return id;
