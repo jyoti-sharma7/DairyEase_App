@@ -44,15 +44,11 @@ public class LoginActivity extends AppCompatActivity {
         ForgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
-
                 Intent i = new Intent(LoginActivity.this, ForgetPassActivity.class);
                 startActivity(i);
             }
         });
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,10 +70,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
-
                 Intent in = new Intent(LoginActivity.this,RegistrationActivity.class);
                 startActivity(in);
             }
@@ -92,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(true);
         progressDialog.show();
-
 
         if (login_email.getError()==null && login_password.getError()==null){
             Call<LoginResponse> call = RetrofitClient
