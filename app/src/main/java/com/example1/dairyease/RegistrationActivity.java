@@ -1,6 +1,7 @@
 package com.example1.dairyease;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ public class RegistrationActivity extends AppCompatActivity {
     Button btn_Rrgister;
     TextView GoTo_login;
 
+    private ProgressDialog progressDialog;
+
 
 
    // @SuppressLint("MissingInflatedId")
@@ -33,6 +36,8 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
             setContentView(R.layout.activity_registration);
+
+        progressDialog = new ProgressDialog(this);
 
             Reg_FName = findViewById(R.id.Reg_FName);
             Reg_Contact = findViewById(R.id.Reg_Contact);
@@ -46,6 +51,11 @@ public class RegistrationActivity extends AppCompatActivity {
             GoTo_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    progressDialog.setMessage("Loading...");
+                    progressDialog.setCancelable(true);
+                    progressDialog.show();
+
                     Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
                     startActivity(i);
                 }
@@ -109,39 +119,55 @@ public class RegistrationActivity extends AppCompatActivity {
                         return;
                     }
 
-
-                    Call<RegisterResponse> call = RetrofitClient
-                            .getInstance()
-                            .getApi()
-                            .register(name, contact, address, email, password, conformPass);
-
-                    call.enqueue(new Callback<RegisterResponse>() {
-                        @Override
-                        public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
-
-                            if (response.isSuccessful()) {
-                                RegisterResponse registerResponse = response.body();
-                                Toast.makeText(RegistrationActivity.this,registerResponse.getMessage() , Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(RegistrationActivity.this, EmailVerifyActivity.class);
-                                i.putExtra("userEmail",registerResponse.getUser());
-                                startActivity(i);
-
-                            }
-
-                        }
-
-                        @Override
-                        public void onFailure(Call<RegisterResponse> call, Throwable t) {
-
-                            //t.printStackTrace();
-
-                             Toast.makeText(RegistrationActivity.this,"Email already register.", Toast.LENGTH_LONG).show();
-
-                        }
-                    });
+                    getRegister();
 
                 }
             });
         }
 
+    private void getRegister() {
+
+        String name = Reg_FName.getText().toString();
+        String contact = Reg_Contact.getText().toString().trim();
+        String address = Reg_Address.getText().toString();
+        String email = Reg_Mail.getText().toString().trim();
+        String password = Reg_Pass.getText().toString().trim();
+        String conformPass = Reg_Con_Pass.getText().toString().trim();
+
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(true);
+        progressDialog.show();
+
+        Call<RegisterResponse> call = RetrofitClient
+                .getInstance()
+                .getApi()
+                .register(name, contact, address, email, password, conformPass);
+
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
+
+                if (response.isSuccessful()) {
+                    RegisterResponse registerResponse = response.body();
+                    Toast.makeText(RegistrationActivity.this,registerResponse.getMessage() , Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(RegistrationActivity.this, EmailVerifyActivity.class);
+                    i.putExtra("userEmail",registerResponse.getUser());
+                    startActivity(i);
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
+                //t.printStackTrace();
+
+                Toast.makeText(RegistrationActivity.this,"Email already register.", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
     }
+
+}
