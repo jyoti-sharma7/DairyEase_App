@@ -1,138 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/login"
     tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            android:src="@drawable/img_10"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/loginbg"
-            android:layout_marginStart="20dp"
-            />
-        <TextView
-            android:layout_width="155dp"
-            android:layout_height="wrap_content"
-            android:text="Wake up to health!"
-            android:textSize="30dp"
-            android:fontFamily="@font/inter_bold"
-            android:textColor="@color/light_blue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginbg"
-            android:id="@+id/wakeup"/>
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/img_11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/wakeup"
-            app:layout_constraintTop_toBottomOf="@id/loginbg"
-            android:layout_marginEnd="30dp"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="211dp"
+        android:layout_height="121dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="25dp"
+        android:id="@+id/loginbg"
+        android:src="@drawable/img_10" />
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginRight="89dp"
+        android:background="@drawable/img_11"
+        android:layout_gravity="right"
+        />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-5dp"
+        android:text="Wake up \n to health!"
+        android:textColor="#1F93EF"
+        android:textSize="26dp"
+        android:id="@+id/wakeup"
+        android:textStyle="bold" />
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        >
 
-        <EditText
-            android:id="@+id/login_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:drawableEnd="@drawable/baseline_mail_outline_24"
+        <EditText android:id="@+id/login_email"
+            android:layout_width="353dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="127dp"
+            android:drawableLeft="@drawable/baseline_mail_outline_24"
+            android:drawablePadding="8dp"
             android:hint="Email"
-            android:textColor="@color/black"
-            android:inputType="text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_goneMarginTop="10dp"
-            android:layout_marginHorizontal="35dp"
-            />
+            android:background="@drawable/background_circleblue"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="300dp"
+            android:layout_height="2dp"
+
+
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="-2dp"
+
+            android:background="@color/darkblack"></View>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+        <View
+            android:id="@+id/view1"
+            android:layout_width="300dp"
+            android:layout_marginStart="40dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="-3dp"
+            android:background="@color/darkblack"></View>
+
         <EditText
             android:id="@+id/login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:drawableEnd="@drawable/outline_lock_24"
+            android:layout_width="353dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+
+            android:paddingLeft="5dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/background_circleblue"
+            android:layout_marginTop="18dp"
+            android:drawableLeft="@drawable/outline_privacy_tip_24"
             android:hint="Password"
             android:inputType="textPassword"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_email"
-            android:layout_marginHorizontal="35dp"
-            />
+            android:drawablePadding="7dp"
+            android:textSize="18dp" />
 
+        <ImageButton
+            android:id="@+id/passwordToggle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/outline_remove_red_eye_24"
+            android:background="@null"
+            android:layout_marginTop="-43dp"
+            android:layout_marginEnd="55dp"
+            android:layout_gravity="end"
+            android:contentDescription="Toggle Password Visibility" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/ForgetPass"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textSize="15sp"
+        android:layout_gravity="right"
+        android:layout_marginRight="48dp"
+        android:textColor="@color/black"
+        />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="188dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:hint="Log in"
+        android:textColorHint="@color/black"
+        android:textSize="28dp"
+        android:backgroundTint="@android:color/white"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/ForgetPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="forget password?"
-            app:layout_constraintTop_toBottomOf="@id/login_password"
-            app:layout_constraintEnd_toEndOf="@id/login_password"/>
-
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="Login"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            app:cornerRadius="10dp"
+            android:layout_marginTop="8dp"
+            android:text="Not a member?"
+            android:id="@+id/already"
+            android:layout_marginStart="90dp"
             android:textColor="@color/black"
-            android:backgroundTint="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/login_password"/>
-        <RelativeLayout
+            android:textSize="20dp" />
+        <TextView   android:id="@+id/gotoRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_login">
-
-            <TextView
-                android:id="@+id/already"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Not a member?" />
-
-            <TextView
-                android:id="@+id/gotoRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/background1"
-                android:layout_toRightOf="@id/already"
-                android:layout_marginStart="5dp"
-                />
-        </RelativeLayout>
+            android:layout_marginTop="8dp"
+            android:text="Register!"
+            android:textColor="#DC143C"
+            android:layout_marginStart="5dp"
+            android:textSize="22dp" />
+    </LinearLayout>
+</LinearLayout>
 
 
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
