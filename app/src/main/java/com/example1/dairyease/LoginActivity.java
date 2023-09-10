@@ -81,10 +81,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = login_email.getText().toString().trim();
         String password = login_password.getText().toString().trim();
 
-        progressDialog.setMessage("Loading...");
-        progressDialog.setCancelable(true);
-        progressDialog.show();
-
         if (login_email.getError()==null && login_password.getError()==null){
             Call<LoginResponse> call = RetrofitClient
                     .getInstance()
@@ -100,6 +96,11 @@ public class LoginActivity extends AppCompatActivity {
                             String message = loginResponse.getMessage();
 
                             if (loginResponse.getStatus() == 1 && "User logged in successfully".equals(message)) {
+
+                                progressDialog.setMessage("Loading...");
+                                progressDialog.setCancelable(true);
+                                progressDialog.show();
+
                                 SharedPreferences sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putBoolean("is_logged_in", true);
