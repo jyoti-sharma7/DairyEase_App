@@ -15,7 +15,7 @@
         android:layout_marginLeft="33dp"
         android:layout_marginTop="25dp"
         android:id="@+id/loginbg"
-        android:src="@drawable/logo" />
+        android:src="@drawable/img_10" />
     <ImageView
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -38,8 +38,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-
-
         >
 
         <EditText android:id="@+id/login_email"
