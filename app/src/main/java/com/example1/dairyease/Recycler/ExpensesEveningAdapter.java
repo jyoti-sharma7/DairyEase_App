@@ -45,7 +45,7 @@ public class ExpensesEveningAdapter extends RecyclerView.Adapter<ExpensesEvening
             holder.tvDATE.setText(expensesEveningList.getDate());
             holder.tvShift.setText(expensesEveningList.getShift());
             holder.tvProductName.setText(expensesEveningList.getProduct());
-            holder.tvPerPrice.setText(expensesEveningList.getPer_quantity());
+            holder.tvPerPrice.setText(String.valueOf(expensesEveningList.getTotal_price()));
 
             holder.expensesEveningRecyclerDesign.setOnClickListener(new View.OnClickListener() {
                 @Override

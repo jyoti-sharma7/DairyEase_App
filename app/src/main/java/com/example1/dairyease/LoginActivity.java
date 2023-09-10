@@ -45,10 +45,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
-
                 Intent i = new Intent(LoginActivity.this, ForgetPassActivity.class);
                 startActivity(i);
             }
@@ -89,10 +85,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = login_email.getText().toString().trim();
         String password = login_password.getText().toString().trim();
 
-        progressDialog.setMessage("Loading...");
-        progressDialog.setCancelable(true);
-        progressDialog.show();
-
 
         if (login_email.getError()==null && login_password.getError()==null){
             Call<LoginResponse> call = RetrofitClient
@@ -106,6 +98,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         LoginResponse loginResponse = response.body();
                         if (loginResponse != null) {
+
+                            progressDialog.setMessage("Loading...");
+                            progressDialog.setCancelable(true);
+                            progressDialog.show();
                             String message = loginResponse.getMessage();
 
                             if (loginResponse.getStatus() == 1 && "User logged in successfully".equals(message)) {

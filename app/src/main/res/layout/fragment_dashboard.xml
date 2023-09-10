@@ -82,7 +82,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="170dp"
         android:id="@+id/scroll"
         android:paddingBottom="10dp"
         >
