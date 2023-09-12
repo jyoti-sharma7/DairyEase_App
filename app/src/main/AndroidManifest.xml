@@ -19,7 +19,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Events.Eventactivity"
+            android:name=".Events.EventActivity"
             android:exported="false" />
         <activity
             android:name=".MilkActivity.MilkEveningActivity"

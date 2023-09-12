@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example1.dairyease.ModelResponse.EventResponse;
-import com.example1.dairyease.Product.ProductDetailActivity;
 import com.example1.dairyease.R;
 import com.example1.dairyease.RetrofitClient;
 
@@ -22,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Eventactivity extends AppCompatActivity {
+public class EventActivity extends AppCompatActivity {
 
     TextView tvDescription,tvTitle,tvVenue,tvdate;
     ImageView ivEvent;
@@ -62,7 +61,7 @@ public class Eventactivity extends AppCompatActivity {
                     tvVenue.setText("" + venue);
 
                     if (!imageUrl.isEmpty()) {
-                        Glide.with(Eventactivity.this).load(imageUrl).into(ivEvent);
+                        Glide.with(EventActivity.this).load(imageUrl).into(ivEvent);
                     } else {
                         // Handle the case where imageUrl is empty or null
                         Log.e("ProductDetailActivity", "Image URL is empty or null");

@@ -14,9 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example1.dairyease.Events.Eventactivity;
+import com.example1.dairyease.Events.EventActivity;
 import com.example1.dairyease.ModelResponse.EventData;
-import com.example1.dairyease.ModelResponse.ProductList;
 import com.example1.dairyease.R;
 
 import java.util.List;
@@ -76,7 +75,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
                 @Override
                 public void onClick(View v) {
 
-                    Intent i = new Intent(context, Eventactivity.class);
+                    Intent i = new Intent(context, EventActivity.class);
                     context.startActivity(i);
 
                     SharedPreferences sharedPreferences = context.getSharedPreferences("EventData", Context.MODE_PRIVATE);
