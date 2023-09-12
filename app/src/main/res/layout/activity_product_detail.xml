@@ -189,9 +189,6 @@
             android:layout_below="@id/productDiscription"
             />
 
-
-
-
     </RelativeLayout>
 
 
