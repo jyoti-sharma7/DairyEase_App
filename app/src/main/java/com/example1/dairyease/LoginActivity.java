@@ -70,10 +70,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressDialog.setMessage("Loading...");
-                progressDialog.setCancelable(true);
-                progressDialog.show();
-
                 Intent in = new Intent(LoginActivity.this,RegistrationActivity.class);
                 startActivity(in);
             }

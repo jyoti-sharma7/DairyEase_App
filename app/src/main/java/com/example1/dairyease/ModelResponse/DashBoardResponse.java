@@ -2,16 +2,26 @@ package com.example1.dairyease.ModelResponse;
 
 public class DashBoardResponse {
 
+    private String name;
     private String profile_photo;
     private String total_balance;
     private String total_milk;
     private String per_liter_amt;
 
-    public DashBoardResponse(String profile_photo, String total_balance, String total_milk, String per_liter_amt) {
+    public DashBoardResponse(String name, String profile_photo, String total_balance, String total_milk, String per_liter_amt) {
+        this.name = name;
         this.profile_photo = profile_photo;
         this.total_balance = total_balance;
         this.total_milk = total_milk;
         this.per_liter_amt = per_liter_amt;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getProfile_photo() {

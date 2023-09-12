@@ -71,9 +71,6 @@ public class DashboardFragment extends Fragment {
 
         // Initialize your views here
         greetingTextView = view.findViewById(R.id.tvGoodMorning);
-        greet = view.findViewById(R.id.greet);
-        imgCUSTOMER = view.findViewById(R.id.imgCUSTOMER);
-
 
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         String Token = sharedPreferences.getString("TOKEN", "");
@@ -91,7 +88,13 @@ public class DashboardFragment extends Fragment {
                     perliterAMOUNT = view.findViewById(R.id.perliterAMOUNT);
                     totalmilkAMOUNT = view.findViewById(R.id.totalmilkAMOUNT);
                     balanceAMOUNT = view.findViewById(R.id.balanceAMOUNT);
+                    greet = view.findViewById(R.id.greet);
+                    imgCUSTOMER = view.findViewById(R.id.imgCUSTOMER);
 
+                    Glide.with(requireActivity())
+                                .load(dashBoardResponse.getProfile_photo())
+                                .into(imgCUSTOMER);
+                    greet.setText(dashBoardResponse.getName());
                     balanceAMOUNT.setText(String.valueOf(dashBoardResponse.getTotal_balance()));
                     perliterAMOUNT.setText(String.valueOf(dashBoardResponse.getPer_liter_amt()));
                     totalmilkAMOUNT.setText(dashBoardResponse.getTotal_milk());
@@ -106,6 +109,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+
         productRecyclerView(view);
         eventRecycler(view);
         categoryRecycle(view);
@@ -119,20 +123,6 @@ public class DashboardFragment extends Fragment {
                 updateGreetingText();
             }
         }, delay, period);
-
-        SharedPreferences sharedPreferences1 = requireActivity().getSharedPreferences("ProfileData", Context.MODE_PRIVATE);
-        String name = sharedPreferences1.getString("Name", "");
-        String imageUrl = sharedPreferences1.getString("imageUrl", "");
-
-        greet.setText(name);
-
-        if (!imageUrl.isEmpty()) {
-            Glide.with(requireActivity())
-                    .load(imageUrl)
-                    .into(imgCUSTOMER);
-        } else {
-            Log.e("DashboardFragment", "Image URL is empty or null");
-        }
 
 
         return view;

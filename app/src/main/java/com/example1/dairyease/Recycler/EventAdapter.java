@@ -1,6 +1,8 @@
 package com.example1.dairyease.Recycler;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example1.dairyease.Events.Eventactivity;
 import com.example1.dairyease.ModelResponse.EventData;
 import com.example1.dairyease.ModelResponse.ProductList;
 import com.example1.dairyease.R;
@@ -67,10 +70,25 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         public  void bind( EventData eventData ){
 
             tvDetail.setText(eventData.getEvent_description());
-
             Glide.with(context).load(eventData.getEvent_image_url()).into(ivEvent);
 
+            llEventDesign.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
+                    Intent i = new Intent(context, Eventactivity.class);
+                    context.startActivity(i);
+
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("EventData", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("Date", eventData.getEvent_date());
+                    editor.putString("Title", eventData.getEvent_title());
+                    editor.putString("Description", eventData.getEvent_description());
+                    editor.putString("Image", eventData.getEvent_image_url());
+                    editor.putString("Venue", eventData.getEvent_venue());
+                    editor.apply();
+                }
+            });
 
         }
 

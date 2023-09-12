@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Product.ProductDetailActivity">
+    tools:context=".Events.Eventactivity">
+
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -24,7 +26,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product Details"
+                    android:text="Event Details"
                     android:textSize="20dp"
                     android:textColor="@color/white"
                     />
@@ -43,20 +45,20 @@
 
 
         <ImageView
-            android:layout_width="220dp"
-            android:layout_height="170dp"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
             android:id="@+id/border"
             android:src="@drawable/imageborder"
-            android:layout_marginHorizontal="90dp"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="35dp"
             />
 
         <ImageView
-            android:id="@+id/productImg"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_marginHorizontal="120dp"
-            android:layout_marginTop="35dp"
+            android:id="@+id/ivEvent"
+            android:layout_width="350dp"
+            android:layout_height="220dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="17dp"
             android:src="@drawable/img_17"
             />
 
@@ -64,131 +66,96 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name:"
+            android:text="Event Date :"
             android:textSize="22dp"
             android:textColor="@color/black"
-            android:layout_below="@id/productImg"
+            android:layout_below="@id/border"
             android:layout_marginTop="25dp"
             android:layout_marginStart="20dp"
 
             />
         <TextView
-            android:id="@+id/productName"
+            android:id="@+id/tvdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Vita cow milk"
+            android:text="2222-98-56"
             android:textSize="20dp"
             android:layout_toRightOf="@id/name"
-            android:layout_marginTop="28dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="6dp"
             android:textColor="@color/black"
-            android:layout_below="@id/productImg"
+            android:layout_below="@id/border"
             android:fontFamily="@font/inter_bold"
             />
+
         <TextView
-            android:id="@+id/quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quantity(ltr):"
-            android:textSize="22dp"
-            android:textColor="@color/black"
+            android:id="@+id/tveventvenue"
             android:layout_below="@id/name"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:textFontWeight="450"
-
+            android:text="Event Venue :"
+            android:textSize="22dp"
+            android:textColor="@color/black"
             />
-
         <TextView
-            android:id="@+id/quantityAmt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/productName"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/quantity"
-            android:text="10"
+            android:id="@+id/tvVenue"
+            android:text="Bharatpor-10"
+            android:fontFamily="@font/inter_bold"
+            android:layout_below="@id/tvdate"
+            android:layout_toRightOf="@id/tveventvenue"
+            android:layout_marginStart="6dp"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:fontFamily="@font/inter_bold"
             />
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Price(Rs):"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-            android:layout_below="@id/quantity"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:textFontWeight="450"
 
-            />
         <TextView
-            android:id="@+id/perPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_toRightOf="@id/price"
-            android:layout_below="@id/quantityAmt"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/inter_bold"
-            />
-        <TextView
-            android:id="@+id/brand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Brand Name:"
-            android:textSize="22sp"
-            android:textColor="@color/black"
-            android:layout_below="@id/price"
+            android:id="@+id/tvEventTitle"
+            android:layout_below="@id/tveventvenue"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:textFontWeight="450"
-            />
-        <TextView
-            android:id="@+id/brandName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vita"
-            android:textSize="20sp"
+            android:text="Event Title :"
+            android:textSize="22dp"
             android:textColor="@color/black"
-            android:layout_below="@id/perPrice"
-            android:layout_toRightOf="@id/brand"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="5dp"
-            android:fontFamily="@font/inter_bold"
             />
         <TextView
-            android:id="@+id/productDiscription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Product Description:"
-            android:textSize="22sp"
+            android:id="@+id/tvTitle"
+            android:text="Celebration of 25th anniversary"
+            android:fontFamily="@font/inter_bold"
+            android:layout_below="@id/tvVenue"
+            android:layout_toRightOf="@id/tvEventTitle"
+            android:layout_marginStart="6dp"
             android:textColor="@color/black"
-            android:layout_below="@id/brandName"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:textFontWeight="450"
-            />
-        <TextView
-            android:id="@+id/tvProductDiscription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vita milk is a creamy and delicious soy milk made from fresh and natural whole soybeans. It is a great source of protein with a rich taste that you will love!
-"
-            android:fontFamily="@font/inter_bold"
             android:textSize="20dp"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tveventDescription"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginStart="20dp"
+            android:text="Event Description :"
+            android:textSize="22dp"
             android:textColor="@color/black"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDescription"
+            android:text="Anniversary celebration of 25yr of annapurna dairy"
+            android:fontFamily="@font/inter_bold"
+            android:layout_below="@id/tveventDescription"
             android:layout_marginHorizontal="20dp"
-            android:layout_below="@id/productDiscription"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             />
-
 
 
 

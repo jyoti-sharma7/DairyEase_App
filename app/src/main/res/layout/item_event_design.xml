@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="260dp"
+    android:layout_height="257dp"
     android:orientation="vertical"
     android:id="@+id/llEventDesign"
     android:paddingBottom="10dp"
@@ -12,7 +12,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="180dp"
+        android:layout_height="177dp"
         android:id="@+id/ivEvent"
         android:layout_marginHorizontal="5dp"
         android:src="@drawable/customer"
@@ -24,14 +24,14 @@
         android:textStyle="bold"
         android:id="@+id/tveventdescription"
         android:layout_marginStart="5dp"
-        android:textSize="15dp"
+        android:textSize="13dp"
         />
     <TextView
         android:id="@+id/tvDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="jkdfhuehfjdnvkjhsvushjvnsdjkfhvuhvjdsbvjbvjuhjvnjdbvjk"
-        android:textSize="15dp"
+        android:layout_marginTop="-3dp"
         android:layout_marginHorizontal="5dp"
         />
 </LinearLayout>

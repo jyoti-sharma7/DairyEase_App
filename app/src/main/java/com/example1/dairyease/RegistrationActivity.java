@@ -52,10 +52,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    progressDialog.setMessage("Loading...");
-                    progressDialog.setCancelable(true);
-                    progressDialog.show();
-
                     Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
                     startActivity(i);
                 }
