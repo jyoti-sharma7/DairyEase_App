@@ -1,4 +1,4 @@
-package com.example1.dairyease;
+package com.example1.dairyease.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,9 +13,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example1.dairyease.ForgetPassword.ForgetPassActivity;
+import com.example1.dairyease.Fragments.MainActivity;
 import com.example1.dairyease.ModelResponse.LoginResponse;
-
-import java.io.IOException;
+import com.example1.dairyease.R;
+import com.example1.dairyease.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent in = new Intent(LoginActivity.this,RegistrationActivity.class);
+                Intent in = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(in);
             }
         });

@@ -84,7 +84,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="165dp"
         android:id="@+id/scroll"
-        android:layout_marginBottom="5dp"
         >
         <androidx.cardview.widget.CardView
             app:cardCornerRadius="20dp"
@@ -182,7 +181,7 @@
             <!-- TOP CATEGORY -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="145dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="143dp"
                 app:cardElevation="0dp"
                 >
@@ -223,7 +222,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:layout_marginTop="273dp"
+                android:layout_marginTop="267dp"
                 app:cardElevation="0dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -265,7 +264,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:layout_marginTop="487dp"
+                android:layout_marginTop="483dp"
                 app:cardElevation="0dp">
                 <RelativeLayout
                     android:layout_width="match_parent"

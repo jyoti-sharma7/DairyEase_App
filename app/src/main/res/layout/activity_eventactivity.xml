@@ -7,7 +7,6 @@
     tools:context=".Events.EventActivity">
 
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,26 +65,25 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Event Date :"
-            android:textSize="22dp"
-            android:textColor="@color/black"
             android:layout_below="@id/border"
-            android:layout_marginTop="25dp"
             android:layout_marginStart="20dp"
-
-            />
+            android:layout_marginTop="25dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Event Date :"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
         <TextView
             android:id="@+id/tvdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2222-98-56"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:layout_toRightOf="@id/name"
             android:layout_marginTop="25dp"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/black"
             android:layout_below="@id/border"
-            android:fontFamily="@font/inter_bold"
+
             />
 
         <TextView
@@ -95,7 +93,8 @@
             android:layout_below="@id/name"
             android:layout_marginStart="20dp"
             android:text="Event Venue :"
-            android:textSize="22dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:textColor="@color/black"
             />
         <TextView
@@ -103,12 +102,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvVenue"
             android:text="Bharatpor-10"
-            android:fontFamily="@font/inter_bold"
             android:layout_below="@id/tvdate"
             android:layout_toRightOf="@id/tveventvenue"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
             />
 
         <TextView
@@ -118,7 +117,8 @@
             android:layout_below="@id/tveventvenue"
             android:layout_marginStart="20dp"
             android:text="Event Title :"
-            android:textSize="22dp"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:textColor="@color/black"
             />
         <TextView
@@ -126,12 +126,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvTitle"
             android:text="Celebration of 25th anniversary"
-            android:fontFamily="@font/inter_bold"
             android:layout_below="@id/tvVenue"
             android:layout_toRightOf="@id/tvEventTitle"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="5dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:layout_marginTop="3dp"
+            android:textSize="18dp"
             />
 
 
@@ -142,7 +142,8 @@
             android:layout_below="@id/tvTitle"
             android:layout_marginStart="20dp"
             android:text="Event Description :"
-            android:textSize="22dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20dp"
             android:textColor="@color/black"
             />
         <TextView
@@ -150,11 +151,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/tvDescription"
             android:text="Anniversary celebration of 25yr of annapurna dairy"
-            android:fontFamily="@font/inter_bold"
             android:layout_below="@id/tveventDescription"
             android:layout_marginHorizontal="20dp"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="18dp"
             />
 
 

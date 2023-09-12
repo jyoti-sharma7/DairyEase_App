@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example1.dairyease.EmailVerifyActivity;
 import com.example1.dairyease.ModelResponse.TokenOTPResponse;
 import com.example1.dairyease.R;
 import com.example1.dairyease.RetrofitClient;

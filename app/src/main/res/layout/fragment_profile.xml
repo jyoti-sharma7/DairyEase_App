@@ -48,11 +48,11 @@
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:src="@drawable/customer"
-
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         />
-    <TextView        android:id="@+id/UploadImg"
+    <TextView
+        android:id="@+id/UploadImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Upload a Photo"
@@ -64,10 +64,10 @@
         />
     <androidx.cardview.widget.CardView
         android:layout_width="330dp"
-        android:layout_height="445dp"
+        android:layout_height="465dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="200dp"
         app:cardCornerRadius="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
@@ -76,58 +76,114 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <EditText
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID :"
+                android:layout_marginTop="17dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
                 android:id="@+id/Profile_id"
-                android:layout_width="290dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="24dp"
-                android:hint="Id"
-                android:inputType="text" />
-            <EditText
+                android:background="#F5F5F5"
+                android:layout_marginTop="5dp"
+                android:textSize="17dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name :"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
                 android:id="@+id/Profile_name"
-                android:layout_width="290dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:layout_marginTop="5dp"
+                android:textSize="17dp"
                 android:drawableRight="@drawable/baseline_person_outline_24"
-                android:hint="Full Name"
-                android:inputType="text" />
-            <EditText
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact :"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+            <TextView
                 android:id="@+id/Profile_Contact"
-                android:layout_width="290dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="9dp"
-                android:hint="Contact"
-                android:inputType="number"
+                android:background="#F5F5F5"
+                android:layout_marginTop="5dp"
+                android:textSize="17dp"
                 android:drawableEnd="@drawable/outline_phone_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address :"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
             <EditText
                 android:id="@+id/Profile_Address"
-                android:layout_width="290dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="9dp"
-                android:hint="Address"
+                android:background="#F5F5F5"
+                android:layout_marginTop="5dp"
+                android:textSize="17dp"
                 android:drawableRight="@drawable/outline_place_24" />
-            <EditText
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email :"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                />
+
+            <TextView
                 android:id="@+id/Profile_Mail"
-                android:layout_width="290dp"
-                android:layout_height="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:hint="Email"
+                android:background="#F5F5F5"
+                android:layout_marginTop="5dp"
+                android:textSize="17dp"
                 android:drawableRight="@drawable/baseline_mail_outline_24" />
 
             <Button
                 android:id="@+id/btn_update"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginHorizontal="60dp"
                 android:backgroundTint="@color/light_blue"
                 android:text="Edit"
-
                 android:textColor="@color/white"
                 android:textSize="23sp"
                 android:textStyle="bold"

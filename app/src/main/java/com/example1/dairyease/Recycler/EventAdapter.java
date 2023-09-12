@@ -68,7 +68,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         public  void bind( EventData eventData ){
 
-            tvDetail.setText(eventData.getEvent_description());
+            tvDetail.setText(eventData.getEvent_title());
             Glide.with(context).load(eventData.getEvent_image_url()).into(ivEvent);
 
             llEventDesign.setOnClickListener(new View.OnClickListener() {

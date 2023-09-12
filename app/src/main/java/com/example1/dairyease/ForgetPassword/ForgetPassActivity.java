@@ -11,9 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example1.dairyease.LoginActivity;
 import com.example1.dairyease.ModelResponse.ForgetPasswordResponse;
-import com.example1.dairyease.ModelResponse.LoginResponse;
 import com.example1.dairyease.R;
 import com.example1.dairyease.RetrofitClient;
 

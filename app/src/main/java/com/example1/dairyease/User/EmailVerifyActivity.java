@@ -1,9 +1,8 @@
-package com.example1.dairyease;
+package com.example1.dairyease.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -12,11 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example1.dairyease.ModelResponse.LoginResponse;
-import com.example1.dairyease.ModelResponse.RegisterResponse;
 import com.example1.dairyease.ModelResponse.VerifyOtpResponse;
-
-import java.util.Random;
+import com.example1.dairyease.R;
+import com.example1.dairyease.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

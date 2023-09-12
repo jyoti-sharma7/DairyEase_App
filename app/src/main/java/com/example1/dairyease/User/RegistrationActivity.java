@@ -1,9 +1,7 @@
-package com.example1.dairyease;
+package com.example1.dairyease.User;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -14,8 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example1.dairyease.ForgetPassword.TokenActivity;
 import com.example1.dairyease.ModelResponse.RegisterResponse;
+import com.example1.dairyease.R;
+import com.example1.dairyease.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

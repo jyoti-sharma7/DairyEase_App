@@ -1,4 +1,4 @@
-package com.example1.dairyease;
+package com.example1.dairyease.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +14,9 @@ import com.example1.dairyease.Fragments.ExpensesFragment;
 import com.example1.dairyease.Fragments.LogOutFragment;
 import com.example1.dairyease.Fragments.MilkFragment;
 import com.example1.dairyease.Fragments.ProfileFragment;
+import com.example1.dairyease.R;
+import com.example1.dairyease.User.LogoutPopoutDialog;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if(bottomNavigationView.getSelectedItemId()==R.id.home){
+        if(bottomNavigationView.getSelectedItemId()== R.id.home){
             super.onBackPressed();
             finish();
         }else {

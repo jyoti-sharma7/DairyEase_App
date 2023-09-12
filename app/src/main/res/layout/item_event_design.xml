@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description :"
+        android:text="Title :"
         android:textStyle="bold"
         android:id="@+id/tveventdescription"
         android:layout_marginStart="5dp"

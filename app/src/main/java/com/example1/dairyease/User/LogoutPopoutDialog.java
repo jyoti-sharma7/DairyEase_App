@@ -1,8 +1,6 @@
-package com.example1.dairyease;
+package com.example1.dairyease.User;
 
 import static android.content.Context.MODE_PRIVATE;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example1.dairyease.R;
+import com.example1.dairyease.User.LoginActivity;
 
 public class LogoutPopoutDialog extends Dialog {
 

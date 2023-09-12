@@ -1,4 +1,4 @@
-package com.example1.dairyease;
+package com.example1.dairyease.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.example1.dairyease.Fragments.MainActivity;
+import com.example1.dairyease.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -55,7 +57,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent i = new Intent(SplashScreenActivity.this,LoginActivity.class);
+                    Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
                     startActivity(i);
                     finish();
                 }

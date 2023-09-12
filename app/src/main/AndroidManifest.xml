@@ -34,10 +34,10 @@
             android:name=".Expenses.ExpensesMorningDataActivity"
             android:exported="false" />
         <activity
-            android:name=".LogoutPopoutDialog"
+            android:name=".User.LogoutPopoutDialog"
             android:exported="false" />
         <activity
-            android:name=".EmailVerifyActivity"
+            android:name=".User.EmailVerifyActivity"
             android:exported="false" />
         <activity
             android:name=".ForgetPassword.TokenActivity"
@@ -64,10 +64,10 @@
             android:name=".ForgetPassword.ForgetPassActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".User.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".User.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -76,10 +76,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".User.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Fragments.MainActivity"
             android:exported="true" />
 
         <meta-data
