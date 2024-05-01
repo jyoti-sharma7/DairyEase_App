@@ -24,20 +24,14 @@ public class RegistrationActivity extends AppCompatActivity {
     EditText Reg_FName, Reg_Contact, Reg_Address, Reg_Mail, Reg_Pass, Reg_Con_Pass;
     Button btn_Rrgister;
     TextView GoTo_login;
-
     private ProgressDialog progressDialog;
-
-
 
    // @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
             setContentView(R.layout.activity_registration);
-
         progressDialog = new ProgressDialog(this);
-
             Reg_FName = findViewById(R.id.Reg_FName);
             Reg_Contact = findViewById(R.id.Reg_Contact);
             Reg_Address = findViewById(R.id.Reg_Address);
@@ -50,12 +44,10 @@ public class RegistrationActivity extends AppCompatActivity {
             GoTo_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     Intent i = new Intent(RegistrationActivity.this, LoginActivity.class);
                     startActivity(i);
                 }
             });
-
             btn_Rrgister.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -65,13 +57,11 @@ public class RegistrationActivity extends AppCompatActivity {
                     String email = Reg_Mail.getText().toString().trim();
                     String password = Reg_Pass.getText().toString().trim();
                     String conformPass = Reg_Con_Pass.getText().toString().trim();
-
                     //fullname
                     if (name.isEmpty()) {
                         Reg_FName.setError("Field is Empty");
                         return;
                     }
-
                     //contact
                     if (contact.isEmpty()) {
                         Reg_Contact.setError("Field is Empty");
@@ -113,13 +103,10 @@ public class RegistrationActivity extends AppCompatActivity {
                         Toast.makeText(RegistrationActivity.this, "Password Does not match", Toast.LENGTH_SHORT).show();
                         return;
                     }
-
                     getRegister();
-
                 }
             });
         }
-
     private void getRegister() {
 
         String name = Reg_FName.getText().toString();
@@ -128,16 +115,13 @@ public class RegistrationActivity extends AppCompatActivity {
         String email = Reg_Mail.getText().toString().trim();
         String password = Reg_Pass.getText().toString().trim();
         String conformPass = Reg_Con_Pass.getText().toString().trim();
-
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(true);
         progressDialog.show();
-
         Call<RegisterResponse> call = RetrofitClient
                 .getInstance()
                 .getApi()
                 .register(name, contact, address, email, password, conformPass);
-
         call.enqueue(new Callback<RegisterResponse>() {
             @Override
             public void onResponse(Call<RegisterResponse> call, Response<RegisterResponse> response) {
@@ -148,18 +132,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     Intent i = new Intent(RegistrationActivity.this, EmailVerifyActivity.class);
                     i.putExtra("userEmail",registerResponse.getUser());
                     startActivity(i);
-
                 }
-
             }
-
             @Override
             public void onFailure(Call<RegisterResponse> call, Throwable t) {
-
                 //t.printStackTrace();
-
                 Toast.makeText(RegistrationActivity.this,"Email already register.", Toast.LENGTH_LONG).show();
-
             }
         });
 
